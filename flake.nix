@@ -1,0 +1,66 @@
+{
+  description = "system dotfiles flake";
+
+  inputs = {
+
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+    };
+
+    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    hyprnix.url = "github:hyprland-community/hyprnix";
+
+    sherlock.url = "github:Skxxtz/sherlock";
+
+    stylix.url = "github:danth/stylix/release-24.11";
+  };
+
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-unstable,
+    home-manager,
+    ...
+    }
+    @ inputs:
+
+    let
+      lib = nixpkgs.lib;
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    in {
+      nixosConfigurations = {
+        nixos = lib.nixosSystem {
+          inherit system;
+          specialArgs = { 
+            inherit inputs;
+            inherit pkgs-unstable;
+          };
+          modules = [
+            ./configuration.nix
+            inputs.stylix.nixosModules.stylix
+          ];
+        };
+      };
+
+      homeConfigurations = {
+        hazel = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            inherit inputs;
+            inherit pkgs-unstable;
+          };
+          modules = [
+            ./home-manager
+          ];
+        };
+      };
+    };
+}
