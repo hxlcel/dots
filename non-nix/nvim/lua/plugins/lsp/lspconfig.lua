@@ -1,4 +1,7 @@
 return {
+  -- LIKELY BROKEN. SWITCH TO BLINK COMPLETENESS PARTIAL
+  -- edit: much less so than expected. working impressively well for it's insides having been played with and left as is!
+  -- edit2: TODO: working alright! a lot left to configure.
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
@@ -11,7 +14,7 @@ return {
     local lspconfig = require("lspconfig")
 
     -- import cmp-nvim-lsp plugin
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
+    -- local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
     local keymap = vim.keymap -- for conciseness
 
@@ -65,15 +68,9 @@ return {
     })
 
     -- used to enable autocompletion (assign to every lsp server config)
-    local capabilities = cmp_nvim_lsp.default_capabilities()
-
-    -- -- Change the Diagnostic symbols in the sign column (gutter)
-    -- -- (not in youtube nvim video)
-    -- local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    -- for type, icon in pairs(signs) do
-    --   local hl = "DiagnosticSign" .. type
-    --   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    -- end
+    -- local capabilities = cmp_nvim_lsp.default_capabilities()
+    local original_capabilities = vim.lsp.protocol.make_client_capabilities()
+    local capabilities = require("blink.cmp").get_lsp_capabilities(original_capabilities)
 
 lspconfig.lua_ls.setup{
   filetypes = { "lua" },

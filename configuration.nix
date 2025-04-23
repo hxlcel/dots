@@ -4,9 +4,9 @@
   imports = [ 
     ./hardware-configuration.nix
     ./nvidia.nix
-    ./sys-hyprland.nix
     ./sys-pkgs.nix
     ./services.nix
+    ./sys-hyprland.nix
     ./stylix.nix
   ];
   # Disable stylix hyprland interaction (stylix dont like hyprnix)
@@ -45,30 +45,6 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
-
-  # Display Manager
-  services.xserver.displayManager = {
-    gdm.enable = true;
-    # sddm = {
-    #   enable = true;
-    #   theme = "rose-pine";
-    # };
-  };
-
-  # services.displayManager.ly = {
-  #   package = pkgs-unstable.ly;
-  #   enable = true;
-  #   settings = {
-  #     animation = "matrix";
-  #     # bg = 
-  #   };
-  # };
-
-  ### neither ly or lightdm initialise the xserver(?) session automatically
-  ### need to figure out what kind of session and which file to manually give them
-
-  # services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {

@@ -1,6 +1,11 @@
 return {
   {
+    -- TODO: disabled while trialing blinkcmp
+    -- edit: it seems that something included with blinkcmp enables it's own tabout functionality?
+    -- renaming file extension here to make certain.
+    -- edit2: not true. plugin was still running despite my attempts to disable it.
     'abecodes/tabout.nvim',
+    enable = true;
     lazy = false,
     config = function()
       require('tabout').setup {

@@ -20,8 +20,8 @@ stylix = {
     };
 
     # targets = {
-    #   hyprland.enable= false;
+    #   # hyprland.enable= false;
+    #   rofi.enable = true;
     # };
-    
   };
 }

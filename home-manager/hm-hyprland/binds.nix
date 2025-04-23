@@ -6,6 +6,7 @@ in
   wayland.windowManager.hyprland.keyBinds = {
     # Quick launch programs
     bind."${mod}, T" = "exec, kitty";
+    bind."${mod}, Z" = "exec, zen";
     # bindr."${mod}, ${mod}_L" = "exec, fuzzel";
     bindr."${mod}, ${mod}_L" = "exec, rofi -show drun -show-icons";
     # bindr."${mod}, ${mod}_L" = "exec, sherlock";
@@ -60,7 +61,10 @@ in
     bind."${mod}_ALT, N" = "exec, dunstctl close-all";
 
 
-    # Hyprshot
+    ###---- Hyprshot ----###
+    # Regional screenshot passed only to the clipboard
     bind."${mod}_SHIFT, s" = "exec, hyprshot -m region --clipboard-only";
+    # Regional screenshot saved to ~/Pictures/Screenshots
+    bind."${mod}_ALT_SHIFT, s" = "exec, hyprshot -m region";
   };
 }

@@ -23,6 +23,7 @@
       fd
       bat
       tree
+      unzip
 
       # Fonts
       atkinson-hyperlegible-next

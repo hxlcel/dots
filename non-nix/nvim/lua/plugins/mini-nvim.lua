@@ -4,11 +4,13 @@ return {
   config = function()
 
     require("mini.surround").setup()
+
     require("mini.files").setup()
+    require('mini.files').setup()
 
   end,
 
   keys = {
-    { "<leader>f", function() MiniFiles.open() end, desc = "Minifiles"}
+    { "<leader>e", function() MiniFiles.open() end, desc = "Minifiles"}
   }
 }

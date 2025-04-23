@@ -13,7 +13,7 @@ require("lualine").setup()
 vim.wo.number = true
 vim.wo.relativenumber = true
 
-vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>NvimTreeToggle<CR>", {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>NvimTreeToggle<CR>", {noremap = true, silent = true})
 
 -- indent settings
 vim.opt.tabstop = 2

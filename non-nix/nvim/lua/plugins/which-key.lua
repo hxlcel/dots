@@ -1,4 +1,5 @@
 return {
+  -- TODO: customise!
   "folke/which-key.nvim",
   event = "VeryLazy",
   keys = {

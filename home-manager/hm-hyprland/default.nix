@@ -48,7 +48,7 @@
       "DP-1, preferred, 1920x0, 1, transform, 3"
     ];
 
-    # TODO not sure if this works, goal is to set certain workspaces to certain monitors. Env wide workspaces instead of per monitor?
+    # TODO: not sure if this works, goal is to set certain workspaces to certain monitors. Env wide workspaces instead of per monitor?
     workspaceRules = {
       "1".monitor = "DP-2";
     };

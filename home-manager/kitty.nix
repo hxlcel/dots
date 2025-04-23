@@ -13,6 +13,9 @@
       background = "#000000";
       background_opacity = 0.5;
       background_blur = 1;
+
+      underline_position = -2;
+      underline_thickness = "150%";
     };
   };
 
