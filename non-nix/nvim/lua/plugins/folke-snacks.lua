@@ -12,7 +12,11 @@ return
         timeout = 9000.
       },
 
+      terminal = {
+      },
+
       dashboard = {
+        -- enabled = false,
         width = 18,
         preset = {
           keys = {
@@ -131,5 +135,6 @@ return
       { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
       -- Other
       { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
+      { "<leader>t", function() Snacks.terminal.toggle() end, desc = "Toggle terminal" },
     },
   }

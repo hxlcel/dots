@@ -31,3 +31,6 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move focus to the right window"
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move focus to the down window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move focus to the up window" })
 
+-- for folke/edgy
+vim.opt.laststatus = 3
+vim.opt.splitkeep = "screen"

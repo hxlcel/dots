@@ -1,5 +1,6 @@
 return{
   'fmbarina/multicolumn.nvim',
+  dir = "~/.dotfiles/non-nix/nvim/lua/plugins/plugin-branches/multicolumn.nvim/",
   event = { 'BufReadPre', 'BufNewFile' },
   opts = {
 
@@ -21,16 +22,16 @@ return{
 
     sets = {
 
-      lua = {
-        rulers = { 81 },
-        full_column = true,
-        to_line_end = true,
-        always_on = true,
-        fg_color = "#EB6F92",
-      },
+      -- lua = {
+      --   rulers = { 81 },
+      --   full_column = true,
+      --   to_line_end = true,
+      --   always_on = true,
+      --   fg_color = "#EB6F92",
+      -- },
 
       python = {
-        rulers = { 81 },
+        rulers = { 80 },
         full_column = true,
         to_line_end = true,
         always_on = true,

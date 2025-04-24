@@ -4,7 +4,8 @@
   programs.kitty = {
     enable = true;
     font.name = "jetbrains-mono";
-    font.size = 12;
+    # font.size = 12;
+    font.size = 11;
     themeFile = "rose-pine-moon";
     settings = {
       shell = "zsh";

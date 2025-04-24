@@ -1,7 +1,11 @@
 return {
   -- LIKELY BROKEN. SWITCH TO BLINK COMPLETENESS PARTIAL
   -- edit: much less so than expected. working impressively well for it's insides having been played with and left as is!
-  -- edit2: TODO: working alright! a lot left to configure.
+  -- edit2:
+  -- TODO: working alright! a lot left to configure.
+  --
+  -- TODO: Code testing / block running; rewriting code to be testable with
+  -- the terminal is time consuming and possibly mistake prone.
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {

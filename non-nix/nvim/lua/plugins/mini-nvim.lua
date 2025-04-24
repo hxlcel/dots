@@ -1,16 +1,38 @@
 return {
   "echasnovski/mini.nvim",
+  event = "vimEnter",
   version = false,
   config = function()
 
-    require("mini.surround").setup()
+    -- Define locals
+    local surround = require("mini.surround")
+    local files = require("mini.files")
+    -- local starter = require("mini.starter")
 
-    require("mini.files").setup()
-    require('mini.files').setup()
+    -- Initialise the plugins
+    surround.setup()
+    files.setup()
+    -- starter.setup()
 
+    -- Configuration
+    surround.setup = ({})
+
+    files.setup = ({})
+
+    -- starter.setup({
+    --   items = {
+    --     starter.sections.telescope(),
+    --   },
+    --   content_hooks = {
+    --     starter.gen_hook.adding_bullet(),
+    --     starter.gen_hook.aligning('center', 'center'),
+    --   },
+    -- })
   end,
 
   keys = {
-    { "<leader>e", function() MiniFiles.open() end, desc = "Minifiles"}
+    { "<leader>e", function() MiniFiles.open() end, desc = "Minifiles"},
+
+    -- { "<leader>ms", function() MiniStarter.open() end, desc = "fucking start cunt"}
   }
 }
