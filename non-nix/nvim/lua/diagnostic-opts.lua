@@ -3,7 +3,8 @@ vim.diagnostic.config {
   -- Current line diagnostic information.
   -- Displays directly under editor text.
   -- Only line occupied by the cursor.
-  virtual_lines = { current_line = true },
+  -- virtual_lines = { current_line = true },
+  underline = true,
 
   -- Gutter diagnostic icons.
   signs = {

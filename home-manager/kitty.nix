@@ -15,8 +15,8 @@
       background_opacity = 0.5;
       background_blur = 1;
 
-      underline_position = -2;
-      underline_thickness = "150%";
+      underline_position = 0;
+      underline_thickness = "200%";
     };
   };
 

@@ -25,6 +25,7 @@
       "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       "systemctl --user start hyprpolkitagent"
       "killall -q swww; sleep .5 && swww init" # Vertical monitor support being worked on currently.
+      "killall -q mega-cmd; sleep 0.5 && mega-cmd"
       # "killall -q swaybg; sleep 0.5 && swaybg -i ~/Pictures/Wallpapers/wallhaven-wyk796.jpg -m fill"
       "killall -q waybar;sleep .5 && waybar"
       # "killall -q swaync;sleep .5 && swaync"
