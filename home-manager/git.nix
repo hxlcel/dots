@@ -3,7 +3,7 @@
   programs.git = {
     enable = true;
     userName = "hxlcel";
-    userEmail = "jopat2003@gmail.com";
+    userEmail = "hxlcel@proton.me";
     extraConfig = {
       init.defaultBranch = "main";
     };
