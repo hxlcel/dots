@@ -2,6 +2,7 @@
   imports = [
     ./gui-theme.nix
     ./rofi
+    # ./swaync.nix
     ./dunst.nix
     ./wlogout
     # ./sherlock.nix # Has promise, in early development and feels like it.
