@@ -12,7 +12,7 @@
       window_padding_width = 2;
       hide_window_decorations = true;
       background = "#000000";
-      background_opacity = 0.5;
+      background_opacity = 0.75;
       background_blur = 1;
 
       underline_position = 0;
