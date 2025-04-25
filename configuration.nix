@@ -2,7 +2,7 @@
 
 {
   imports = [ 
-    ./hardware-configuration.nix
+    ./desktop.nix
     ./nvidia.nix
     ./sys-pkgs.nix
     ./services.nix
