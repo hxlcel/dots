@@ -24,6 +24,7 @@
       bat
       tree
       unzip
+      zoxide
 
       # Fonts
       atkinson-hyperlegible-next
