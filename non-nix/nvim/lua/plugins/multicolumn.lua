@@ -1,6 +1,5 @@
 return{
   'fmbarina/multicolumn.nvim',
-  dir = "~/neovim-plugin-branches/multicolumn.nvim/",
   event = { 'BufReadPre', 'BufNewFile' },
   opts = {
 
