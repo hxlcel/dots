@@ -3,9 +3,6 @@
   environment.systemPackages = 
     ( with pkgs-unstable; [
 
-      # Display Manager
-      # ly
-
       # Editor
       neovim
       vim # Emergency editor
@@ -31,6 +28,7 @@
 
       # Misc
       cavalier
+
     ])
 
     ++
@@ -52,6 +50,6 @@
       lua-language-server
       nixd
       gcc14
-      (callPackage ./sddm-rose-pine.nix {})
+      # (callPackage ./sddm-rose-pine.nix {})
     ]);
 }

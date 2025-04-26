@@ -4,7 +4,7 @@
   imports = [ 
     ./desktop.nix
     ./nvidia.nix
-    ./sys-pkgs.nix
+    ../universal/sys-pkgs.nix
     ./services.nix
     ./sys-hyprland.nix
     ./stylix.nix
