@@ -39,14 +39,26 @@
 
       nixosConfigurations = {
 
-        nixos = lib.nixosSystem {
+        # nixos = lib.nixosSystem {
+        #   inherit system;
+        #   specialArgs = { 
+        #     inherit inputs;
+        #     inherit pkgs-unstable;
+        #   };
+        #   modules = [
+        #     ./hosts/hxlcel-desktop/configuration.nix
+        #     inputs.stylix.nixosModules.stylix
+        #   ];
+        # };
+
+        hxlcel-desktop = lib.nixosSystem {
           inherit system;
           specialArgs = { 
             inherit inputs;
             inherit pkgs-unstable;
           };
           modules = [
-            ./hosts/desktop/configuration.nix
+            ./hosts/hxlcel-desktop/configuration.nix
             inputs.stylix.nixosModules.stylix
           ];
         };
@@ -65,20 +77,37 @@
       };
 
       homeConfigurations = {
-        desktop = home-manager.lib.homeManagerConfiguration {
+
+        "hazel@hxlcel-desktop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
             inherit inputs;
             inherit pkgs-unstable;
           };
           modules = [
-            ./home-manager
+            ./hosts/hxlcel-desktop/home-manager
             {
               home.username = "hazel";
               home.homeDirectory = "/home/hazel";
             }
           ];
         };
+
+        "hazel@hxlcel-surface" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            inherit inputs;
+            inherit pkgs-unstable;
+          };
+          modules = [
+            ./hosts/hxlcel-surface/home-manager
+            {
+              home.username = "hazel";
+              home.homeDirectory = "/home/hazel";
+            }
+          ];
+        };
+
       };
     };
 }

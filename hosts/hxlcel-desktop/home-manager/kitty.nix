@@ -5,7 +5,7 @@
     enable = true;
     font.name = "jetbrains-mono";
     # font.size = 12;
-    font.size = 11;
+    font.size = 10;
     themeFile = "rose-pine-moon";
     settings = {
       shell = "zsh";

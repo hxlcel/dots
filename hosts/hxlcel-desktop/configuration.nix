@@ -21,7 +21,7 @@
   # programs.fish.enable = true;
   # users.users.hazel.shell = pkgs.fish;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "hxlcel-desktop"; # Define your hostname.
 
   networking.networkmanager.enable = true;
 
