@@ -7,6 +7,8 @@
 
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nixos-hardware.url = "github:NixOS/nixos/nixos-hardware/master";
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
     };
@@ -26,6 +28,7 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
+    nixos-hardware,
     ...
     }
     @ inputs:
@@ -63,14 +66,15 @@
           ];
         };
 
-        surface = lib.nixosSystem {
+        hxlcel-surface = lib.nixosSystem {
           inherit system;
           specialArgs = {
             inherit inputs;
             inherit pkgs-unstable;
           };
           modules = [
-            ./hosts/surface/configuration.nix
+            nixos-hardware.nixosModules.microsoft-surface-pro-9
+            ./hosts/hxlcel-surface/configuration.nix
           ];
         };
 
