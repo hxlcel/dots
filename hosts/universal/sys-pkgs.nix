@@ -29,6 +29,9 @@
       # Misc
       cavalier
 
+      # Git
+      gitg
+
     ])
 
     ++
