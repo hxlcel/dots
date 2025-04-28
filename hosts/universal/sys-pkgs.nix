@@ -48,6 +48,8 @@
         python-lsp-server
         flake8
         mypy
+        pytest
+        pytest-mock
       ]))
 
       lua-language-server

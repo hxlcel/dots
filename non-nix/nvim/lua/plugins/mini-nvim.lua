@@ -32,7 +32,5 @@ return {
 
   keys = {
     { "<leader>e", function() MiniFiles.open() end, desc = "Minifiles"},
-
-    -- { "<leader>ms", function() MiniStarter.open() end, desc = "fucking start cunt"}
   }
 }

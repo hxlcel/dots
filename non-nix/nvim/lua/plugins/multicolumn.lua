@@ -21,13 +21,13 @@ return{
 
     sets = {
 
-      -- lua = {
-      --   rulers = { 81 },
-      --   full_column = true,
-      --   to_line_end = true,
-      --   always_on = true,
-      --   fg_color = "#EB6F92",
-      -- },
+      lua = {
+        rulers = { 999 },
+        full_column = true,
+        to_line_end = true,
+        always_on = true,
+        fg_color = "#EB6F92",
+      },
 
       python = {
         rulers = { 80 },

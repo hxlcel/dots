@@ -15,8 +15,10 @@ return {
     triggers = {
       {"<leader>", mode = { "n", "v" }},
       {"s", mode = { "n", "v" }},
+      {"m", mode = { "n", "v" }},
     },
     spec = {
+      { "m", group = "Neotest"},
       { "s", group = "[s]urround" },
       { "<leader>s", group = "[s]earch" }
     },
