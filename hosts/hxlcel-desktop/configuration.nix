@@ -5,6 +5,7 @@
     ./desktop.nix
     ./nvidia.nix
     ../universal/sys-pkgs.nix
+    ./desktop-pkgs.nix
     ./services.nix
     ./sys-hyprland.nix
     ./stylix.nix

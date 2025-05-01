@@ -15,7 +15,29 @@ vim.diagnostic.config {
       [vim.diagnostic.severity.INFO] = ' ',
     },
   },
+  float ={
+    source = true,
+  },
+  virtual_text = {
+    source = true,
+  },
 }
+
+-- TODO: This setup is kinda lazy, how can i improve it?
+
+vim.api.nvim_create_autocmd( {"DiagnosticChanged", "CursorMoved" }, {
+  pattern = "*",
+  callback = function ()
+    vim.diagnostic.open_float(nil, {focus = false})
+  end
+})
+
+-- vim.api.nvim_create_autocmd( {"CursorHold"}, {
+--   pattern = "*",
+--   callback = function ()
+--     vim.lsp.buf.hover()
+--   end
+-- })
 
 -- TODO: Create abstraction for highlight groups.
 -- should work with todo-comments without 

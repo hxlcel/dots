@@ -76,28 +76,38 @@ return {
     local original_capabilities = vim.lsp.protocol.make_client_capabilities()
     local capabilities = require("blink.cmp").get_lsp_capabilities(original_capabilities)
 
-lspconfig.lua_ls.setup{
-  filetypes = { "lua" },
-  lua = {
-    runtime = { version = "LuaJIT" },
-  },
-  telemetry = { enabled = false },
-}
+    lspconfig.lua_ls.setup{
+      filetypes = { "lua" },
+      lua = {
+        runtime = { version = "LuaJIT" },
+      },
+      telemetry = { enabled = false },
+    }
 
-lspconfig.pylsp.setup{
-  root_dir = require("lspconfig.util").root_pattern(".git", "setup.py", "pyproject.toml"),
-  cmd = { "pylsp" },
-  filetypes = { "python" },
-  -- settings = {
-  --   pylsp = {
-  --   }
-  -- }
-}
+    lspconfig.pylsp.setup{
+      root_dir = require("lspconfig.util").root_pattern(".git", "setup.py", "pyproject.toml"),
+      cmd = { "pylsp" },
+      filetypes = { "python" },
+      settings={
+        pylsp = {
+          plugins = {
 
-lspconfig.nixd.setup{
-  cmd = { "nixd" },
-  filetypes = { "nix" },
-}
+            mypy = { enable = true },
+            flake8 = { enabled = true },
 
-end
+            pycodestyle = { enabled = false },
+            mccabe = { enabled = false },
+            pyflakes = { enabled = false },
+
+          },
+        },
+      },
+    }
+
+    lspconfig.nixd.setup{
+      cmd = { "nixd" },
+      filetypes = { "nix" },
+    }
+
+  end
 }

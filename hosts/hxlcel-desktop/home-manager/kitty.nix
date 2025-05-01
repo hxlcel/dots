@@ -3,7 +3,8 @@
 
   programs.kitty = {
     enable = true;
-    font.name = "jetbrains-mono";
+    # font.name = "jetbrains-mono";
+    font.name = "ubuntu regular";
     # font.size = 12;
     font.size = 10;
     themeFile = "rose-pine-moon";

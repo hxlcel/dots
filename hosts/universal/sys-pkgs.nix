@@ -48,6 +48,7 @@
         python-lsp-server
         flake8
         mypy
+        black
         pytest
         pytest-mock
       ]))
