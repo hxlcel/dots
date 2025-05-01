@@ -94,6 +94,7 @@ return {
 
             mypy = { enable = true },
             flake8 = { enabled = true },
+            black = { enabled = true },
 
             pycodestyle = { enabled = false },
             mccabe = { enabled = false },

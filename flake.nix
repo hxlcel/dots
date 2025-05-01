@@ -2,7 +2,6 @@
   description = "system dotfiles flake";
 
   inputs = {
-
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -36,89 +35,69 @@
     home-manager,
     nixos-hardware,
     ...
-    }
-    @ inputs:
-
-    let
-      lib = nixpkgs.lib;
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
-    in {
-
-      nixosConfigurations = {
-
-        # nixos = lib.nixosSystem {
-        #   inherit system;
-        #   specialArgs = { 
-        #     inherit inputs;
-        #     inherit pkgs-unstable;
-        #   };
-        #   modules = [
-        #     ./hosts/hxlcel-desktop/configuration.nix
-        #     inputs.stylix.nixosModules.stylix
-        #   ];
-        # };
-
-        hxlcel-desktop = lib.nixosSystem {
-          inherit system;
-          specialArgs = { 
-            inherit inputs;
-            inherit pkgs-unstable;
-          };
-          modules = [
-            ./hosts/hxlcel-desktop/configuration.nix
-            inputs.stylix.nixosModules.stylix
-          ];
+  } @ inputs: let
+    lib = nixpkgs.lib;
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+  in {
+    nixosConfigurations = {
+      hxlcel-desktop = lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs;
+          inherit pkgs-unstable;
         };
-
-        hxlcel-surface = lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs;
-            inherit pkgs-unstable;
-          };
-          modules = [
-            nixos-hardware.nixosModules.microsoft-surface-pro-9
-            ./hosts/hxlcel-surface/configuration.nix
-            auto-cpufreq.nixosModules.default
-          ];
-        };
-
+        modules = [
+          ./hosts/hxlcel-desktop/configuration.nix
+          inputs.stylix.nixosModules.stylix
+        ];
       };
 
-      homeConfigurations = {
-
-        "hazel@hxlcel-desktop" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit inputs;
-            inherit pkgs-unstable;
-          };
-          modules = [
-            ./hosts/hxlcel-desktop/home-manager
-            {
-              home.username = "hazel";
-              home.homeDirectory = "/home/hazel";
-            }
-          ];
+      hxlcel-surface = lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs;
+          inherit pkgs-unstable;
         };
-
-        "hazel@hxlcel-surface" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit inputs;
-            inherit pkgs-unstable;
-          };
-          modules = [
-            ./hosts/hxlcel-surface/home-manager
-            {
-              home.username = "hazel";
-              home.homeDirectory = "/home/hazel";
-            }
-          ];
-        };
-
+        modules = [
+          nixos-hardware.nixosModules.microsoft-surface-pro-9
+          ./hosts/hxlcel-surface/configuration.nix
+          auto-cpufreq.nixosModules.default
+        ];
       };
     };
+
+    homeConfigurations = {
+      "hazel@hxlcel-desktop" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {
+          inherit inputs;
+          inherit pkgs-unstable;
+        };
+        modules = [
+          ./hosts/hxlcel-desktop/home-manager
+          {
+            home.username = "hazel";
+            home.homeDirectory = "/home/hazel";
+          }
+        ];
+      };
+
+      "hazel@hxlcel-surface" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {
+          inherit inputs;
+          inherit pkgs-unstable;
+        };
+        modules = [
+          ./hosts/hxlcel-surface/home-manager
+          {
+            home.username = "hazel";
+            home.homeDirectory = "/home/hazel";
+          }
+        ];
+      };
+    };
+  };
 }

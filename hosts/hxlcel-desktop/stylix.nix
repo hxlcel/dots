@@ -6,7 +6,7 @@ stylix = {
     base16Scheme = "${pkgs-unstable.base16-schemes}/share/themes/rose-pine.yaml";
     image = ./wallhaven-7286p3.png;
     polarity = "dark";
-    autoEnable = false;
+    # autoEnable = false;
 
     fonts = {
       # monospace = {

@@ -42,7 +42,7 @@
       sassc
       inputs.zen-browser.packages."${system}".default
 
-      # Language Servers
+      # Language Servers, Linters, Formatters
       python3
       (python312.withPackages (ps: with ps; [
         python-lsp-server
@@ -54,8 +54,13 @@
       ]))
 
       lua-language-server
+      stylua
+
       nixd
+      alejandra
+
       gcc14
+
       # (callPackage ./sddm-rose-pine.nix {})
     ]);
 }
