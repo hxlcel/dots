@@ -9,6 +9,11 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    auto-cpufreq = {
+      url = "github:AdnanHodzic/auto-cpufreq";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
     };
@@ -27,6 +32,7 @@
     self,
     nixpkgs,
     nixpkgs-unstable,
+    auto-cpufreq,
     home-manager,
     nixos-hardware,
     ...
@@ -75,6 +81,7 @@
           modules = [
             nixos-hardware.nixosModules.microsoft-surface-pro-9
             ./hosts/hxlcel-surface/configuration.nix
+            auto-cpufreq.nixosModules.default
           ];
         };
 

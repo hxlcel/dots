@@ -14,6 +14,23 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  programs.auto-cpufreq.enable = true;
+
+  services.power-profiles-daemon.enable = false;
+
+  programs.auto-cpufreq.settings = {
+    charger = {
+      governor = "performance";
+      turbo = "auto";
+    };
+
+    battery = {
+      governor = "powersave";
+      turbo = "auto";
+    };
+  };
+
+
   networking.hostName = "hxlcel-surface"; # Define your hostname.
 
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -75,6 +92,7 @@
     yazi
     lazygit
     libwacom-surface
+    iptsd
     #   wget
   ];
 

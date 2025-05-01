@@ -13,8 +13,6 @@
     ./kitty.nix
     ./yazi.nix
     ./lazygit.nix
-    ../../universal/sys-pkgs.nix
-
    ];
 
   # Allowed unfree packages since I can't figure out the systemwide setting.
