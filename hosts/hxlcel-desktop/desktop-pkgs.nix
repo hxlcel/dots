@@ -1,6 +1,20 @@
 { pkgs, pkgs-unstable, ... }:
 {
-environment.systemPackages = [
-    pkgs.ungoogled-chromium
-  ];
+  environment.systemPackages =
+
+    ( with pkgs; [
+
+      ungoogled-chromium
+
+    ])
+
+    ++
+
+    ( with pkgs-unstable; [
+
+      qbittorrent
+
+      tmux
+
+    ]);
 }

@@ -5,7 +5,7 @@
     config.general = {
       border_size = 2;
       gaps_inside = 5;
-      gaps_outside = 10;
+      gaps_outside = 5;
     };
 
     config.decoration = {

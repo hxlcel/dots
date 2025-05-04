@@ -27,13 +27,12 @@
     ./lazygit.nix
   ];
 
-
   home.packages =
     (with pkgs; [
       # Unfree
       obsidian
       megacmd
-      
+
       hyfetch
       fastfetch
       nerdfonts
@@ -45,7 +44,25 @@
     ++
     ( with pkgs-unstable; [
       libreoffice-qt6-fresh
+      ghostty
     ]);
+
+
+  ### ~/.config ###
+  home.file = {
+
+    ".config/nvim" = {
+      recursive = true;
+      source = ../../../non-nix/nvim;
+    };
+
+    # ".config/ghostty" = {
+    #   recursive = true;
+    #   source = ../../../non-nix/ghostty;
+    # };
+
+  };
+
 
   programs.home-manager = {
     enable = true;

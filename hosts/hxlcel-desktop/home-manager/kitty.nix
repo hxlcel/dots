@@ -4,20 +4,23 @@
   programs.kitty = {
     enable = true;
     # font.name = "jetbrains-mono";
-    font.name = "ubuntu regular";
-    # font.size = 12;
+    font.name = "FiraCodeNFM-Reg";
+    # font.name = "MonoLisa";
     font.size = 10;
-    themeFile = "rose-pine-moon";
+    # themeFile = "rose-pine-moon";
+    themeFile = "rose-pine";
     settings = {
       shell = "zsh";
       window_padding_width = 2;
       hide_window_decorations = true;
-      background = "#000000";
-      background_opacity = 0.75;
-      background_blur = 1;
+      enable_audio_bell = false;
 
-      underline_position = 0;
-      underline_thickness = "200%";
+      # background = "#000000";
+      # background_opacity = 0.75;
+      # background_blur = 1;
+      #
+      # underline_position = 0;
+      # underline_thickness = "200%";
     };
   };
 

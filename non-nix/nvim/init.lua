@@ -1,3 +1,4 @@
+-- TODO: whole config extremely disorganised. Many things are unused. Needs major cleanup.
 -- set leader
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"

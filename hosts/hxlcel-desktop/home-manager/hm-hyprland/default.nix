@@ -8,6 +8,13 @@
     ./window-rules.nix
   ];
 
+  home.file = {
+    ".config/waybar" = {
+      recursive = true;
+      source = ./waybar;
+    };
+  };
+
   programs.waybar.enable = true;
 
   wayland.windowManager.hyprland = {
