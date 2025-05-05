@@ -2,38 +2,45 @@ return {
   -- TODO: customise!
   "folke/which-key.nvim",
   event = "VeryLazy",
+  sort = "order",
+  -- stylua: ignore start
   keys = {
-    {
-      "<leader>?",
-      function()
-        require("which-key").show({ global = false })
-      end,
-      desc = "Buffer Local Keymaps (which-key)",
-    },
-    {
-      "<leader>mp",
-      function()
-        require("conform").format({
-          lsp_fallback = true,
-          async = false,
-          timeout_ms = 1000,
-        })
-      end,
-      { desc = "Format file or range" },
-    },
+    { "<leader>?", function() require("which-key").show({ global = false }) end, desc = "Buffer Local Keymaps (which-key)" },
   },
+
   opts = {
     triggers = {
       { "<leader>", mode = { "n", "v" } },
       { "s", mode = { "n", "v" } },
       { "m", mode = { "n", "v" } },
     },
+
     spec = {
-      { "m", group = "Neotest" },
+
+      -- ###---- GROUPS ----###
+      { "<leader>y", group = "[y]azi"},
+
+      -- ### Mini.nvim
       { "s", group = "[s]urround" },
-      { "<leader>s", group = "[s]earch" },
+
+      -- ### Snacks
+      { "<leader>S", group = "[S]earch" },
+      { "<leader>F", group = "[F]ind" },
+      { "<leader>l", group = "[l]sp" },
+      { "<leader>Sg", group = "[g]rep" },
+      { "<leader>g", group = "[g]it" },
+
+      -- ### Neotest
+      { "<leader>t", group = "[t]est" },
+
+
+      -- ###---- ICONS ----###
+      { "<leader>e", icon = "",},
+      { "<leader>f", icon = "󱧶",},
+      { "<leader>T", icon = "",},
     },
   },
+  -- stylua: ignore end
 }
 
 -- require("which-key").add({

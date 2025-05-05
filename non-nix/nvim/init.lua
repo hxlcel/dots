@@ -6,7 +6,6 @@ require("opts")
 require("diagnostic-opts")
 
 require("config.lazy")
-require("lualine").setup()
 -- require("nvim-tree").setup()
 -- require("transparent").setup()
 

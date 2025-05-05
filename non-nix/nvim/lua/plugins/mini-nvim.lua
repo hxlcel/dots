@@ -4,8 +4,6 @@ return {
   version = false,
 
   config = function()
-
-    -- ### Define locals ###
     local surround = require("mini.surround")
     local files = require("mini.files")
     local pairs = require("mini.pairs")
@@ -16,15 +14,17 @@ return {
     pairs.setup()
 
     -- ### Configuration ###
-    surround.setup = ({})
+    surround.setup = {}
 
-    files.setup = ({})
+    files.setup = {}
 
-    pairs.setup = ({})
-
+    pairs.setup = {}
   end,
 
+  -- stylua: ignore
+
+  -- ### Keybinds ###
   keys = {
-    { "<leader>e", function() MiniFiles.open() end, desc = "Minifiles"},
-  }
+    { "<leader>f", function() MiniFiles.open() end, desc = "Mini.[f]iles"},
+  },
 }

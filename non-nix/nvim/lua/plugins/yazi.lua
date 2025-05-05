@@ -6,26 +6,26 @@ return {
     dependencies = {
       -- check the installation instructions at
       -- https://github.com/folke/snacks.nvim
-      "folke/snacks.nvim"
+      "folke/snacks.nvim",
     },
     keys = {
       -- 👇 in this section, choose your own keymappings!
       {
-        "<leader>-",
+        "<leader>yh",
         mode = { "n", "v" },
         "<cmd>Yazi<cr>",
-        desc = "Open yazi at the current file",
+        desc = "Open [h]ere",
       },
       {
         -- Open in the current working directory
-        "<leader>cw",
+        "<leader>yd",
         "<cmd>Yazi cwd<cr>",
-        desc = "Open the file manager in nvim's working directory",
+        desc = "Open the current working [d]irectory",
       },
       {
-        "<c-up>",
+        "<leader>yr",
         "<cmd>Yazi toggle<cr>",
-        desc = "Resume the last yazi session",
+        desc = "[r]esume the last session",
       },
     },
     ---@type YaziConfig | {}
@@ -42,5 +42,5 @@ return {
       -- vim.g.loaded_netrw = 1
       vim.g.loaded_netrwPlugin = 1
     end,
-  }
+  },
 }

@@ -13,7 +13,7 @@
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "lazygit.nvim": { "branch": "main", "commit": "b9eae3badab982e71abab96d3ee1d258f0c07961" },
   "lualine.nvim": { "branch": "master", "commit": "15884cee63a8c205334ab13ab1c891cd4d27101a" },
-  "mini.nvim": { "branch": "main", "commit": "473cdbff498ed120f1768c75ef65fa42859aa14f" },
+  "mini.nvim": { "branch": "main", "commit": "51cec14696190ad5b61e6c559ae558c703b71906" },
   "multicolumn.nvim": { "branch": "master", "commit": "dd40d2487dd67e8d8323272791d2aebd02bfa144" },
   "neodev.nvim": { "branch": "main", "commit": "46aa467dca16cf3dfe27098042402066d2ae242d" },
   "neotest": { "branch": "master", "commit": "6267dcd577aa519c828d2526b05844770d3a2c6a" },
@@ -40,5 +40,5 @@
   "undotree": { "branch": "master", "commit": "b951b87b46c34356d44aa71886aecf9dd7f5788a" },
   "vim-be-good": { "branch": "master", "commit": "0ae3de14eb8efc6effe7704b5e46495e91931cc5" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
-  "yazi.nvim": { "branch": "main", "commit": "8dbc4121898dfec7982d95e85e60785ea7af4202" }
+  "yazi.nvim": { "branch": "main", "commit": "d12336f6c78f561792f4a957ac07dce50eb19d80" }
 }

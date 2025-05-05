@@ -57,8 +57,8 @@ font-feature = "cv06", "cv14", "ss05", "ss03", "cv29", "ss07" # Firacode specifi
 
 # adjust-cell-height = 10%
 
-adjust-underline-position = 1
-adjust-underline-thickness = 125%
+adjust-underline-position = 3
+adjust-underline-thickness = 130%
 
 window-decoration = none
 

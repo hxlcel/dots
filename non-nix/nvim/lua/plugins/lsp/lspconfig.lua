@@ -30,8 +30,8 @@ return {
         local opts = { buffer = ev.buf, silent = true }
 
         -- set keybinds
-        opts.desc = "Show LSP references"
-        keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+        -- opts.desc = "Show LSP references"
+        -- keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
         opts.desc = "Go to declaration"
         keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
@@ -76,19 +76,19 @@ return {
     local original_capabilities = vim.lsp.protocol.make_client_capabilities()
     local capabilities = require("blink.cmp").get_lsp_capabilities(original_capabilities)
 
-    lspconfig.lua_ls.setup{
+    lspconfig.lua_ls.setup({
       filetypes = { "lua" },
       lua = {
         runtime = { version = "LuaJIT" },
       },
       telemetry = { enabled = false },
-    }
+    })
 
-    lspconfig.pylsp.setup{
+    lspconfig.pylsp.setup({
       root_dir = require("lspconfig.util").root_pattern(".git", "setup.py", "pyproject.toml"),
       cmd = { "pylsp" },
       filetypes = { "python" },
-      settings={
+      settings = {
         pylsp = {
           plugins = {
 
@@ -99,16 +99,14 @@ return {
             pycodestyle = { enabled = false },
             mccabe = { enabled = false },
             pyflakes = { enabled = false },
-
           },
         },
       },
-    }
+    })
 
-    lspconfig.nixd.setup{
+    lspconfig.nixd.setup({
       cmd = { "nixd" },
       filetypes = { "nix" },
-    }
-
-  end
+    })
+  end,
 }

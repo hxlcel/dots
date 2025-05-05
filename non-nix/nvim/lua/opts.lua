@@ -28,7 +28,10 @@ vim.opt.showmode = false
 -- minimum number of lines above and below the cursor
 vim.opt.scrolloff = 15
 
--- navigation keymaps
+-- ### KEYMAPS
+vim.keymap.set("n", "q:", "<Nop>")
+
+-- navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move focus to the down window" })
