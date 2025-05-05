@@ -1,15 +1,16 @@
 { config, pkgs, pkgs-unstable, inputs, ... }:
-
 {
   imports = [ 
-    ./desktop.nix
+    ./hxlcel-desktop.nix
     ./nvidia.nix
-    ../universal/sys-pkgs.nix
-    ./desktop-pkgs.nix
+    ../default/packages.nix
+    ./host-packages.nix
     ./services.nix
-    ./sys-hyprland.nix
     ./stylix.nix
   ];
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Disable stylix hyprland interaction (stylix dont like hyprnix)
   disabledModules = [ "${inputs.stylix}/modules/hyprland/nixos.nix"];
 
@@ -17,19 +18,21 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   programs.zsh.enable = true;
-  users.users.hazel.shell = pkgs.zsh;
-
-  # programs.fish.enable = true;
-  # users.users.hazel.shell = pkgs.fish;
 
   networking.hostName = "hxlcel-desktop"; # Define your hostname.
-
   networking.networkmanager.enable = true;
 
+  users.users.hazel = {
+    isNormalUser = true;
+    home = "/home/hazel/";
+    createHome = true;
+    description = "Hazel";
+    extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
+  };
+
   time.timeZone = "Australia/Brisbane";
-
   i18n.defaultLocale = "en_AU.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_AU.UTF-8";
     LC_IDENTIFICATION = "en_AU.UTF-8";
@@ -42,8 +45,7 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  ###---- ENVIRONMENT ----###
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -53,6 +55,16 @@
     variant = "";
   };
 
+  programs = {
+    hyprland = {
+      enable = true;
+      withUWSM = true;
+    };
+  };
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+
+  ###---- HARDWARE ----###
   services.printing.enable = true;
 
   hardware.pulseaudio.enable = false;
@@ -64,36 +76,12 @@
     pulse.enable = true;
   };
 
-  users.users.hazel = {
-    isNormalUser = true;
-    home = "/home/hazel/";
-    createHome = true;
-    description = "Hazel";
-    extraGroups = [ "networkmanager" "wheel" ];
-  };
-
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
     settings = { General = { Experimental = true; }; };
   };
 
-  # stylix = {
-  #   enable = true;
-  #   homeManagerIntegration.autoImport = true;
-  #   base16Scheme = "${pkgs-unstable.base16-schemes}/share/themes/rose-pine.yaml";
-  #   image = ./wallhaven-7286p3.png;
-  #   polarity = "dark";
-  #   autoEnable = false;
-  #   # fonts = {
-  #   #   monospace = {
-  #   #   };
-  #   #   sansSerif = {
-  #   #   };
-  #   #   serif = {
-  #   #   };
-  #   # };
-  # };
 
   environment.variables.EDITOR = "nvim";
 

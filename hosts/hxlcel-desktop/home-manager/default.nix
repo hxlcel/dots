@@ -6,75 +6,27 @@
 
   home.stateVersion = "24.05"; # just don't fuck with it 
 
-  # Allowed unfree packages since I can't figure out the systemwide setting.
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (pkgs.lib.getName pkg) [
-      "obsidian"
-      "vscode"
-      "megacmd"
-    ];
-
   # Modules
   imports = [
     inputs.hyprnix.homeManagerModules.default
     ./hm-hyprland
+    ../../default/home-manager
     ./wayland
-    ./zsh.nix
     ./xdg.nix
     ./git.nix
-    ./kitty.nix
-    ./yazi.nix
-    ./lazygit.nix
   ];
 
   home.packages =
-    (with pkgs; [
-      # Unfree
-      obsidian
-      megacmd
-
-      hyfetch
-      fastfetch
-      nerdfonts
-      kitty-themes
+    # (with pkgs; [
+    # ])
+    # ++
+    ( with pkgs-unstable; [
       youtube-music
       vesktop
-      anki
-    ])
-    ++
-    ( with pkgs-unstable; [
-      libreoffice-qt6-fresh
-      ghostty
     ]);
-
-
-  ### ~/.config ###
-  home.file = {
-
-    ".config/nvim" = {
-      recursive = true;
-      source = ../../../non-nix/nvim;
-    };
-
-    # ".config/ghostty" = {
-    #   recursive = true;
-    #   source = ../../../non-nix/ghostty;
-    # };
-
-  };
 
 
   programs.home-manager = {
     enable = true;
-  };
-  programs.vscode = {
-    enable = true;
-  };
-  programs.firefox = {
-    enable = true;
-  };
-  programs.starship = {
-    enable = true;
-    settings = pkgs.lib.importTOML ./starship.toml;
   };
 }

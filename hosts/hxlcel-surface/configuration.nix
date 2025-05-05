@@ -7,15 +7,17 @@
 {
   imports = [
     ./hxlcel-surface.nix
-    ../universal/sys-pkgs.nix
+    ../default/packages.nix
   ];
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
 
-  # Auto-cpufreq
+  ### Auto-cpufreq ###
   programs.auto-cpufreq.enable = true;
 
   services.power-profiles-daemon.enable = false;
@@ -34,7 +36,6 @@
 
 
   networking.hostName = "hxlcel-surface"; # Define your hostname.
-
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
@@ -47,8 +48,6 @@
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 
   services.xserver.enable = true;
