@@ -7,6 +7,9 @@
       neovim
       vim # Emergency editor
 
+      # Termial Emulator
+      ghostty
+
       # Utilities
       manix # Nix option documentation
       jellyfin-ffmpeg
@@ -22,6 +25,7 @@
       tree
       unzip
       zoxide
+      eza
 
       # Fonts
       atkinson-hyperlegible-next
