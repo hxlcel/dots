@@ -17,9 +17,10 @@ vim.o.winborder = 'rounded'
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
--- line numbers
+-- lines
 vim.opt.number = true
 vim.opt.relativenumber = true
+-- vim.opt.linespace =
 
 -- don't show mode since it's already in lualine
 vim.opt.showmode = false

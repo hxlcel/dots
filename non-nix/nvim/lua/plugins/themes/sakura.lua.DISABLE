@@ -1,0 +1,29 @@
+return{
+  "anAcc22/sakura.nvim",
+  enabled = true,
+  name = "sakura",
+
+  config = function ()
+    vim.cmd("colorscheme sakura")
+  end
+
+}
+
+-- return {
+--   "rose-pine/neovim",
+--   enabled = true,
+--   name = "rose-pine",
+--   config = function ()
+--     require("rose-pine").setup({
+--       -- variant = "moon",
+--       variant = "main",
+--       styles = {
+--         transparency = true,
+--       },
+--       highlight_groups = {
+--         SnacksDashboardHeader = { fg = "love" },
+--       }
+--     })
+-- vim.cmd("colorscheme rose-pine")
+-- end
+-- }

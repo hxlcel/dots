@@ -3,9 +3,9 @@
 format = """
 $username\
 $directory\
-$git_branch\
-$git_status\
+
 $fill\
+
 $c\
 $elixir\
 $elm\
@@ -19,9 +19,12 @@ $rust\
 $scala\
 $conda\
 $python\
+$git_branch\
+$git_status\
 $time\n  \
-[󱞪](fg:iris) \
+[❯](fg:iris) \
 """
+
 
 palette = "rose-pine"
 
@@ -71,7 +74,7 @@ diverged = '⇕[\[](bg:overlay fg:iris)[⇡\(${ahead_count}\)](bg:overlay fg:foa
 behind = '[⇣\(${count}\)](bg:overlay fg:rose)'
 
 [time]
-disabled = false
+disabled = true
 format = " [](fg:overlay)[ $time 󰴈 ]($style)[](fg:overlay)"
 style = "bg:overlay fg:rose"
 time_format = "%I:%M%P"
@@ -79,7 +82,7 @@ use_12hr = true
 
 [username]
 disabled = false
-format = "[](fg:overlay)[ 󰧱 $user ]($style)[](fg:overlay) "
+format = "[](fg:overlay)[  $user ]($style)[](fg:overlay) "
 show_always = true
 style_root = "bg:overlay fg:iris"
 style_user = "bg:overlay fg:iris"

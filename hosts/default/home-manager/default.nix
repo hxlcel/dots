@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 {
 
   imports = [
@@ -11,10 +11,11 @@
   ### config directory ###
   home.file = {
 
-    ".config/nvim" = {
-      recursive = true;
-      source = ../../../non-nix/nvim;
-    };
+    # ".config/nvim" = {
+    #   recursive = true;
+    #   # source = config.lib.file.mkOutOfStoreSymlink "/home/hazel/.dotfles/non-nix/nvim";
+    #   source = config.lib.file.mkOutOfStoreSymlink ../../../non-nix/nvim;
+    # };
 
     ".config/ghostty" = {
       recursive = true;
@@ -23,6 +24,8 @@
 
   };
 
+  # Avoiding Nix Store Immutability
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/hazel/.dotfiles/non-nix/nvim";
 
   # Allowed unfree packages since I can't figure out the systemwide setting.
   nixpkgs.config.allowUnfreePredicate = pkg:

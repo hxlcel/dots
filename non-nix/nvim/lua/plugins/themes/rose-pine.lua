@@ -10,7 +10,8 @@ return {
         transparency = true,
       },
       highlight_groups = {
-        SnacksDashboardHeader = { fg = "love" },
+        SnacksDashboardHeader = { fg = "muted" },
+        SnacksDashboardDesc = { fg = "muted" },
       }
     })
 vim.cmd("colorscheme rose-pine")

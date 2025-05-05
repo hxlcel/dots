@@ -42,11 +42,27 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-
 shell-integration = zsh
 
-
+# theme = carbonfox
 theme = rose-pine
+background-opacity = 0.7
+
+
+### FONT ###
+font-family = "FiraCode Nerd Font Mono"
+font-size = 12
+font-feature = "cv06", "cv14", "ss05", "ss03", "cv29", "ss07" # Firacode specific options
+
+
+# adjust-cell-height = 10%
+
+adjust-underline-position = 1
+adjust-underline-thickness = 125%
+
+window-decoration = none
+
+mouse-hide-while-typing = true
 
 
 # TODO: ?
