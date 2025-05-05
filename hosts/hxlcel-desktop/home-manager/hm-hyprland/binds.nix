@@ -5,7 +5,7 @@ in
 {
   wayland.windowManager.hyprland.keyBinds = {
     # Quick launch programs
-    bind."${mod}, T" = "exec, kitty";
+    bind."${mod}, T" = "exec, ghostty";
     bind."${mod}, Z" = "exec, zen";
     # bindr."${mod}, ${mod}_L" = "exec, fuzzel";
     bindr."${mod}, ${mod}_L" = "exec, rofi -show drun -show-icons";
