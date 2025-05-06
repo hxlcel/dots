@@ -29,7 +29,13 @@ return {
   "leath-dub/snipe.nvim",
 
   keys = {
-    {"<leader>S", function () require("snipe").open_buffer_menu() end, desc = "Open Snipe buffer menu"}
+    {
+      "<leader>q",
+      function()
+        require("snipe").open_buffer_menu()
+      end,
+      desc = "Open Snipe buffer menu",
+    },
   },
 
   opts = {
@@ -42,6 +48,5 @@ return {
       cancel_snipe = "q",
       close_buffer = "d",
     },
-
-  }
+  },
 }

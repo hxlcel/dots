@@ -6,13 +6,81 @@ return {
   opts = {
 
     -- Snacks.nvim modules
-    picker = {},
+    picker = {
+      -- Floating Explorer by drowning-cat on github: https://github.com/folke/snacks.nvim/discussions/1306
+      sources = {
+        explorer = {
+          actions = {
+            bufadd = function(_, item)
+              if vim.fn.bufexists(item.file) == 0 then
+                local buf = vim.api.nvim_create_buf(true, false)
+                vim.api.nvim_buf_set_name(buf, item.file)
+                vim.api.nvim_buf_call(buf, vim.cmd.edit)
+              end
+            end,
+            confirm_nofocus = function(picker, item)
+              if item.dir then
+                picker:action("confirm")
+              else
+                picker:action("bufadd")
+              end
+            end,
+          },
+          win = {
+            list = {
+              keys = {
+                ["l"] = "confirm_nofocus",
+                ["L"] = "confirm",
+              },
+            },
+          },
+          auto_close = true,
+          layout = {
+            cycle = true,
+            preview = true, ---@diagnostic disable-line: assign-type-mismatch
+            layout = {
+              box = "horizontal",
+              position = "float",
+              height = 0.95,
+              width = 0,
+              border = "rounded",
+              {
+                box = "vertical",
+                width = 40,
+                min_width = 40,
+                { win = "input", height = 1, title = "{title} {live} {flags}", border = "single" },
+                { win = "list" },
+              },
+              { win = "preview", width = 0, border = "left" },
+            },
+          },
+        },
+      },
+    },
 
     explorer = {}, -- TODO: floating explorer from github
 
     terminal = {},
 
-    statuscolumn = { enabled = true },
+    -- statuscolumn = {
+    --   ---@class snacks.statuscolumn.Config
+    --   ---@field left snacks.statuscolumn.Components
+    --   ---@field right snacks.statuscolumn.Components
+    --   ---@field enabled? boolean
+    --   {
+    --     left = { "mark", "sign" }, -- priority of signs on the left (high to low)
+    --     right = { "fold", "git" }, -- priority of signs on the right (high to low)
+    --     folds = {
+    --       open = false, -- show open fold icons
+    --       git_hl = false, -- use Git Signs hl for fold icons
+    --     },
+    --     git = {
+    --       -- patterns to match Git signs
+    --       patterns = { "GitSign", "MiniDiffSign" },
+    --     },
+    --     refresh = 50, -- refresh at most every 50ms
+    --   },
+    -- },
 
     -- dim = {
     --   enabled = true,
@@ -48,7 +116,7 @@ return {
       },
     },
 
-    dashboard = {
+    dashboard = { ------------------------------------------------------------------------------------------------
       -- enabled = false,
       width = 18,
       preset = {
@@ -77,8 +145,9 @@ return {
       formats = {
         key = { "" },
       },
-    },
+    }, --------------------------------------------------------------------------------------------------------
   },
+
 
   -- stylua: ignore start
   keys = {

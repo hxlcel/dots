@@ -30,14 +30,19 @@ return {
       { "<leader>Sg", group = "[g]rep" },
       { "<leader>g", group = "[g]it" },
 
-      -- ### Neotest
+      -- ### Neotest & DAP
       { "<leader>t", group = "[t]est" },
 
+      { "<leader>d", group = "[d]ebug" },
+
+      -- ### Misc
+      { "<leader>m", group = "Snipe [m]arks"},
 
       -- ###---- ICONS ----###
       { "<leader>e", icon = "",},
       { "<leader>f", icon = "󱧶",},
       { "<leader>T", icon = "",},
+      -- { "<leader>d", icon = ""}
     },
   },
   -- stylua: ignore end

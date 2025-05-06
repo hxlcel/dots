@@ -1,5 +1,4 @@
-{ pkgs, ...}:
-{
+{pkgs, ...}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -28,6 +27,7 @@
       plugins = [
         "tldr"
         "git"
+        "direnv"
       ];
       theme = "";
     };
@@ -43,6 +43,7 @@
 
       eval "$(starship init zsh)"
       eval "$(zoxide init zsh)"
+      eval "$(direnv hook zsh)"
     '';
   };
 }
