@@ -1,13 +1,16 @@
-{ inputs, pkgs, pkgs-unstable, ... }:
 {
-  environment.systemPackages = 
-    ( with pkgs-unstable; [
-
-      # Editor
+  inputs,
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
+  environment.systemPackages =
+    (with pkgs-unstable; [
+      ###---- Editor ----###
       neovim
       vim # Emergency editor
 
-      # Termial Emulator
+      ###---- Termial Emulator ----###
       ghostty
 
       # Utilities
@@ -36,27 +39,24 @@
       # Git
       gitg
 
-    ])
+      ###---- Language Servers, Linters, Formatters ----###
 
-    ++
+      direnv # Loads Nix based virtual dev environments automatically.
 
-    ( with pkgs; [
-      gtk-engine-murrine
-      gnome-themes-extra
-      sassc
-      inputs.zen-browser.packages."${system}".default
+      ### Python
+      (python313.withPackages (ps:
+        with ps; [
+          python-lsp-server
+          flake8
+          mypy
+          black
+          # pytest # <-----
+          # pytest-mock # <- Install according to project environment
+          debugpy
+          pynvim
+        ]))
 
-      # Language Servers, Linters, Formatters
-      python3
-      (python312.withPackages (ps: with ps; [
-        python-lsp-server
-        flake8
-        mypy
-        black
-        pytest
-        pytest-mock
-      ]))
-
+      luajit
       lua-language-server
       stylua
 
@@ -64,7 +64,11 @@
       alejandra
 
       gcc14
-
-      # (callPackage ./sddm-rose-pine.nix {})
+    ])
+    ++ (with pkgs; [
+      gtk-engine-murrine
+      gnome-themes-extra
+      sassc
+      inputs.zen-browser.packages."${system}".default
     ]);
 }

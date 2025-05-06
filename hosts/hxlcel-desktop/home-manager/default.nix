@@ -1,10 +1,13 @@
-{ pkgs, inputs, pkgs-unstable, ... }:
-
 {
+  pkgs,
+  inputs,
+  pkgs-unstable,
+  ...
+}: {
   home.username = "hazel";
   home.homeDirectory = "/home/hazel";
 
-  home.stateVersion = "24.05"; # just don't fuck with it 
+  home.stateVersion = "24.05"; # just don't fuck with it
 
   # Modules
   imports = [
@@ -20,11 +23,10 @@
     # (with pkgs; [
     # ])
     # ++
-    ( with pkgs-unstable; [
+    (with pkgs-unstable; [
       youtube-music
       vesktop
     ]);
-
 
   programs.home-manager = {
     enable = true;

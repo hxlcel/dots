@@ -1,6 +1,9 @@
-{ config, pkgs, pkgs-unstable, ... }:
 {
-
+  config,
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
   imports = [
     ./kitty.nix
     ./zsh.nix
@@ -10,7 +13,6 @@
 
   ### config directory ###
   home.file = {
-
     # ".config/nvim" = {
     #   recursive = true;
     #   # source = config.lib.file.mkOutOfStoreSymlink "/home/hazel/.dotfles/non-nix/nvim";
@@ -21,7 +23,6 @@
       recursive = true;
       source = ../../../non-nix/ghostty;
     };
-
   };
 
   # Avoiding Nix Store Immutability
@@ -40,17 +41,44 @@
       # Unfree
       obsidian
       megacmd
-      
+
       hyfetch
       fastfetch
       nerdfonts
       kitty-themes
     ])
-    ++
-    ( with pkgs-unstable; [
+    ++ (with pkgs-unstable; [
       libreoffice-qt6-fresh
     ]);
 
+  # programs.neovim = {
+  #   enable = true;
+  #   package = pkgs-unstable.neovim-unwrapped;
+  #   extraPackages = with pkgs-unstable; [
+  #     (python312.withPackages (ps:
+  #       with ps; [
+  #         python-lsp-server # Pylsp
+  #         flake8 # Python Linter
+  #         mypy
+  #         black # Opinionated Python Formatter
+  #         pytest
+  #         pytest-mock
+  #         debugpy
+  #       ]))
+  #     lua-language-server
+  #     stylua # Lua Formatter
+  #
+  #     nixd # Nix Language Server
+  #     alejandra # Nix Formatter
+  #   ];
+  # };
+
+  programs.direnv = {
+    enable = true;
+    package = pkgs-unstable.direnv;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
 
   programs.vscode = {
     enable = true;
@@ -62,5 +90,4 @@
     enable = true;
     settings = pkgs.lib.importTOML ./starship.toml;
   };
-
 }
