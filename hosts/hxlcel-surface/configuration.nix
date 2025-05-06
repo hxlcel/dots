@@ -1,21 +1,24 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hxlcel-surface.nix
     ../default/packages.nix
+    ../default/users.nix
+    # ./kanata.nix
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
 
   ### Auto-cpufreq ###
   programs.auto-cpufreq.enable = true;
@@ -34,9 +37,8 @@
     };
   };
 
-
   networking.hostName = "hxlcel-surface"; # Define your hostname.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Australia/Brisbane";
@@ -49,7 +51,6 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-
   services.xserver.enable = true;
 
   services.xserver.displayManager.gdm = {
@@ -58,7 +59,6 @@
   };
 
   services.xserver.desktopManager.gnome.enable = true;
-
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
@@ -78,8 +78,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.hazel = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "surface-control" ]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "surface-control"];
   };
 
   programs.firefox.enable = true;
@@ -93,7 +92,7 @@
     yazi
     lazygit
     libwacom-surface
-    iptsd 
+    iptsd
   ];
 
   environment.gnome.excludePackages = with pkgs; [
@@ -114,7 +113,6 @@
     totem # video player
   ];
 
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -126,9 +124,6 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-
   # NO TOUCH
   system.stateVersion = "24.11";
-
 }
-

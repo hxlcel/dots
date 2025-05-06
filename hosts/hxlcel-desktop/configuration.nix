@@ -1,18 +1,24 @@
-{ config, pkgs, pkgs-unstable, inputs, ... }:
 {
-  imports = [ 
+  config,
+  pkgs,
+  pkgs-unstable,
+  inputs,
+  ...
+}: {
+  imports = [
     ./hxlcel-desktop.nix
     ./nvidia.nix
     ../default/packages.nix
+    ../default/users.nix
     ./host-packages.nix
     ./services.nix
     ./stylix.nix
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Disable stylix hyprland interaction (stylix dont like hyprnix)
-  disabledModules = [ "${inputs.stylix}/modules/hyprland/nixos.nix"];
+  disabledModules = ["${inputs.stylix}/modules/hyprland/nixos.nix"];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -22,14 +28,14 @@
   networking.hostName = "hxlcel-desktop"; # Define your hostname.
   networking.networkmanager.enable = true;
 
-  users.users.hazel = {
-    isNormalUser = true;
-    home = "/home/hazel/";
-    createHome = true;
-    description = "Hazel";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
-  };
+  # users.users.hazel = {
+  #   isNormalUser = true;
+  #   home = "/home/hazel/";
+  #   createHome = true;
+  #   description = "Hazel";
+  #   extraGroups = [ "networkmanager" "wheel" ];
+  #   shell = pkgs.zsh;
+  # };
 
   time.timeZone = "Australia/Brisbane";
   i18n.defaultLocale = "en_AU.UTF-8";
@@ -63,7 +69,6 @@
   };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-
   ###---- HARDWARE ----###
   services.printing.enable = true;
 
@@ -79,14 +84,12 @@
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
-    settings = { General = { Experimental = true; }; };
+    settings = {General = {Experimental = true;};};
   };
-
 
   environment.variables.EDITOR = "nvim";
 
   nixpkgs.config.allowUnfree = true;
 
-  system.stateVersion = "24.11"; # Literally just leave it alone, don't fuck with it. 
-
+  system.stateVersion = "24.11"; # Literally just leave it alone, don't fuck with it.
 }
