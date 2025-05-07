@@ -9,6 +9,7 @@
     ./zsh.nix
     ./yazi.nix
     ./lazygit.nix
+    ./tmux.nix
   ];
 
   ### config directory ###
@@ -23,6 +24,8 @@
       recursive = true;
       source = ../../../non-nix/ghostty;
     };
+
+    # ".config/tmux.conf".source = ../../../non-nix/tmux.conf;
   };
 
   # Avoiding Nix Store Immutability

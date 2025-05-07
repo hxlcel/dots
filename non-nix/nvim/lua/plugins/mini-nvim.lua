@@ -8,12 +8,16 @@ return {
     local files = require("mini.files")
     local pairs = require("mini.pairs")
     local keymap = require("mini.keymap")
+    local hipatterns = require("mini.hipatterns")
+    local sessions = require("mini.sessions")
 
     -- ### Initialise the plugins ###
     surround.setup()
     files.setup()
     pairs.setup()
     keymap.setup()
+    hipatterns.setup()
+    sessions.setup()
 
     -- ### Configuration ###
     surround.setup = {}
@@ -21,6 +25,14 @@ return {
     files.setup = {}
 
     pairs.setup = {}
+
+    sessions.setup = {}
+
+    hipatterns.setup = {
+      highlighters = {
+        hex_color = hipatterns.gen_highlighter.hex_color(),
+      },
+    }
 
     local tab_steps = {
       -- "blink_next",

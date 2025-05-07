@@ -1,20 +1,15 @@
-{ pkgs, pkgs-unstable, ... }:
 {
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
   environment.systemPackages =
-
-    ( with pkgs; [
-
+    (with pkgs; [
       ungoogled-chromium
-
     ])
-
-    ++
-
-    ( with pkgs-unstable; [
-
+    ++ (with pkgs-unstable; [
       qbittorrent
 
-      tmux
-
+      # tmux
     ]);
 }

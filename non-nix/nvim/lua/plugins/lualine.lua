@@ -36,17 +36,30 @@ return {
       -- TODO: theme colors
 
       -- bg       = '#202328',
-
+      -- bg       = "#232136",
       fg       = '#bbc2cf',
-      yellow   = '#ECBE7B',
-      cyan     = '#008080',
-      darkblue = '#081633',
+      -- yellow   = 'iECBE7B',
+      -- cyan     = '#008080',
+      -- darkblue = '#081633',
       green    = '#98be65',
       orange   = '#FF8800',
-      violet   = '#a9a1e1',
-      magenta  = '#c678dd',
-      blue     = '#51afef',
-      red      = '#ec5f67',
+      -- violet   = '#a9a1e1',
+      -- magenta  = '#c678dd',
+      -- blue     = '#51afef',
+      -- red      = '#ec5f67',
+
+      -- rosepine (kinda sorta)
+      bg       = "#232136",
+      -- fg       = ,
+      yellow   = "#f6c177",
+      cyan     = "#9ccfd8",
+      darkblue = "#393552",
+      -- green    = ,
+      -- orange   = ,
+      violet   = "#c4a7e7",
+      magenta  = "#ea9a97",
+      blue     = "#3e8fb0",
+      red      = "#eb6f92",
     }
 
     local conditions = {
@@ -96,6 +109,8 @@ return {
         lualine_c = {},
         lualine_x = {},
       },
+
+      -- winbar = {},
     }
 
     -- Inserts a component in lualine_c at left section
@@ -110,7 +125,8 @@ return {
 
     ins_left({
       function()
-        return "▊"
+        -- return "▊"
+        return ""
       end,
       color = { fg = colors.blue }, -- Sets highlighting of component
       padding = { left = 0, right = 1 }, -- We don't need space before this
@@ -149,6 +165,8 @@ return {
       end,
       padding = { right = 1 },
     })
+
+    ins_left({ "mode" })
 
     ins_left({
       -- filesize component
@@ -247,7 +265,8 @@ return {
 
     ins_right({
       function()
-        return "▊"
+        -- return "▊"
+        return ""
       end,
       color = { fg = colors.blue },
       padding = { left = 1 },
