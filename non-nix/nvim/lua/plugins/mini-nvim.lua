@@ -11,6 +11,7 @@ return {
     local hipatterns = require("mini.hipatterns")
     local sessions = require("mini.sessions")
     local move = require("mini.move")
+    local icons = require("mini.icons")
 
     -- ### Initialise the plugins ###
     surround.setup()
@@ -20,6 +21,7 @@ return {
     hipatterns.setup()
     sessions.setup()
     move.setup()
+    icons.setup()
 
     -- ### Configuration ###
     surround.setup = {}

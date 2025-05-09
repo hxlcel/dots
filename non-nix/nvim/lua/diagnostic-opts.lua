@@ -38,6 +38,7 @@ vim.api.nvim_create_autocmd({ "DiagnosticChanged", "CursorMoved" }, {
 
 -- vim.api.nvim_create_autocmd( {"CursorHold"}, {
 --   pattern = "*",
+--
 --   callback = function ()
 --     vim.lsp.buf.hover()
 --   end

@@ -52,3 +52,6 @@ vim.o.scroll = 10
 -- for folke/edgy
 vim.opt.laststatus = 3
 vim.opt.splitkeep = "screen"
+
+-- for obsidian.nvim
+vim.opt.conceallevel = 1

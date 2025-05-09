@@ -4,6 +4,7 @@ return {
   config = function()
     local conform = require("conform")
 
+    -- TODO: markdown formatter
     conform.setup({
       formatters_by_ft = {
         python = { "black" },
