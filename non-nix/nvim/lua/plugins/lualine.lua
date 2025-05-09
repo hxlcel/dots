@@ -36,17 +36,30 @@ return {
       -- TODO: theme colors
 
       -- bg       = '#202328',
-
+      -- bg       = "#232136",
       fg       = '#bbc2cf',
-      yellow   = '#ECBE7B',
-      cyan     = '#008080',
-      darkblue = '#081633',
+      -- yellow   = 'iECBE7B',
+      -- cyan     = '#008080',
+      -- darkblue = '#081633',
       green    = '#98be65',
       orange   = '#FF8800',
-      violet   = '#a9a1e1',
-      magenta  = '#c678dd',
-      blue     = '#51afef',
-      red      = '#ec5f67',
+      -- violet   = '#a9a1e1',
+      -- magenta  = '#c678dd',
+      -- blue     = '#51afef',
+      -- red      = '#ec5f67',
+
+      -- rosepine (kinda sorta)
+      bg       = "#232136",
+      -- fg       = ,
+      yellow   = "#f6c177",
+      cyan     = "#9ccfd8",
+      darkblue = "#393552",
+      -- green    = ,
+      -- orange   = ,
+      violet   = "#c4a7e7",
+      magenta  = "#ea9a97",
+      blue     = "#3e8fb0",
+      red      = "#eb6f92",
     }
 
     local conditions = {
@@ -96,6 +109,8 @@ return {
         lualine_c = {},
         lualine_x = {},
       },
+
+      -- winbar = {},
     }
 
     -- Inserts a component in lualine_c at left section
@@ -108,13 +123,14 @@ return {
       table.insert(config.sections.lualine_x, component)
     end
 
-    ins_left({
-      function()
-        return "▊"
-      end,
-      color = { fg = colors.blue }, -- Sets highlighting of component
-      padding = { left = 0, right = 1 }, -- We don't need space before this
-    })
+    -- ins_left({
+    --   function()
+    --     -- return "▊"
+    --     return ""
+    --   end,
+    --   color = { fg = colors.blue }, -- Sets highlighting of component
+    --   padding = { left = 0, right = 1 }, -- We don't need space before this
+    -- })
 
     ins_left({
       -- mode component
@@ -147,8 +163,10 @@ return {
         }
         return { fg = mode_color[vim.fn.mode()] }
       end,
-      padding = { right = 1 },
+      padding = { left = 1, right = 1 },
     })
+
+    -- ins_left({ "mode" })
 
     ins_left({
       -- filesize component
@@ -156,12 +174,12 @@ return {
       cond = conditions.buffer_not_empty,
     })
 
-    ins_left({
-      "filename",
-      cond = conditions.buffer_not_empty,
-      -- color = { fg = colors.magenta, gui = "bold" },
-      color = { fg = colors.magenta },
-    })
+    -- ins_left({
+    --   "filename",
+    --   cond = conditions.buffer_not_empty,
+    --   -- color = { fg = colors.magenta, gui = "bold" },
+    --   color = { fg = colors.magenta },
+    -- })
 
     ins_left({ "location" })
 
@@ -181,11 +199,11 @@ return {
 
     -- Insert mid section. You can make any number of sections in neovim :)
     -- for lualine it's any number greater then 2
-    ins_left({
-      function()
-        return "%="
-      end,
-    })
+    -- ins_left({
+    --   function()
+    --     return "%="
+    --   end,
+    -- })
 
     ins_left({
       -- Lsp server name .
@@ -245,13 +263,14 @@ return {
       cond = conditions.hide_in_width,
     })
 
-    ins_right({
-      function()
-        return "▊"
-      end,
-      color = { fg = colors.blue },
-      padding = { left = 1 },
-    })
+    -- ins_right({
+    --   function()
+    --     -- return "▊"
+    --     return ""
+    --   end,
+    --   color = { fg = colors.blue },
+    --   padding = { left = 1 },
+    -- })
 
     -- Now don't forget to initialize lualine
     lualine.setup(config)

@@ -7,19 +7,19 @@
 
     shellAliases = {
       ll = "ls -l";
-      osrebuild = "sudo nixos-rebuild switch --flake .";
-      homerebuild = "home-manager switch --flake ~/.dotfiles/";
+      osflake = "sudo nixos-rebuild switch --flake .";
+      homeflake = "home-manager switch --flake ~/.dotfiles/";
       dots = "cd ~/.dotfiles/";
       config = "cd ~/.config/";
     };
     history.size = 10000;
 
     plugins = [
-      {
-        name = "vi-mode";
-        src = pkgs.zsh-vi-mode;
-        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
-      }
+      # {
+      #   name = "vi-mode";
+      #   src = pkgs.zsh-vi-mode;
+      #   file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+      # }
     ];
 
     oh-my-zsh = {

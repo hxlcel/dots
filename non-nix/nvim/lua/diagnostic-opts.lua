@@ -17,22 +17,24 @@ vim.diagnostic.config({
   },
   float = {
     -- source = true,
+    scope = "line",
+    -- pos =
   },
-  virtual_text = {
-    source = true,
-    current_line = true,
-  },
+  -- virtual_text = {
+  --   source = true,
+  --   current_line = true,
+  -- },
 })
 
 -- ### Floating Diagnostics
 -- TODO: This setup is kinda lazy, how can i improve it?
 
--- vim.api.nvim_create_autocmd({ "DiagnosticChanged", "CursorMoved" }, {
---   pattern = "*",
---   callback = function()
---     vim.diagnostic.open_float(nil, { focus = false })
---   end,
--- })
+vim.api.nvim_create_autocmd({ "DiagnosticChanged", "CursorMoved" }, {
+  pattern = "*",
+  callback = function()
+    vim.diagnostic.open_float(nil, { focus = false })
+  end,
+})
 
 -- vim.api.nvim_create_autocmd( {"CursorHold"}, {
 --   pattern = "*",
