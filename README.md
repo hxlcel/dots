@@ -14,4 +14,7 @@ Configured using [Hyprnix](https://github.com/hyprland-community/hyprnix) (mostl
 
 ## Neovim
 - Neovim configuration based on lazy.nvim.
-- Relies on system-wide LSPs.
+- Relies on system-wide LSPs & formatters.
+
+## Multihost
+- All of my NixOS systems are managed via the one set of dotfiles and nix flakes.
