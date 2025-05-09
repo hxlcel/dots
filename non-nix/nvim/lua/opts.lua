@@ -29,7 +29,7 @@ vim.opt.showmode = false
 vim.opt.scrolloff = 15
 
 -- Always show the tabline
-vim.o.showtabline = 2
+-- vim.o.showtabline = 2
 
 -- ### KEYMAPS
 vim.keymap.set("n", "q:", "<Nop>")

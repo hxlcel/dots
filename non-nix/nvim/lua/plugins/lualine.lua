@@ -123,14 +123,14 @@ return {
       table.insert(config.sections.lualine_x, component)
     end
 
-    ins_left({
-      function()
-        -- return "▊"
-        return ""
-      end,
-      color = { fg = colors.blue }, -- Sets highlighting of component
-      padding = { left = 0, right = 1 }, -- We don't need space before this
-    })
+    -- ins_left({
+    --   function()
+    --     -- return "▊"
+    --     return ""
+    --   end,
+    --   color = { fg = colors.blue }, -- Sets highlighting of component
+    --   padding = { left = 0, right = 1 }, -- We don't need space before this
+    -- })
 
     ins_left({
       -- mode component
@@ -163,10 +163,10 @@ return {
         }
         return { fg = mode_color[vim.fn.mode()] }
       end,
-      padding = { right = 1 },
+      padding = { left = 1, right = 1 },
     })
 
-    ins_left({ "mode" })
+    -- ins_left({ "mode" })
 
     ins_left({
       -- filesize component
@@ -174,12 +174,12 @@ return {
       cond = conditions.buffer_not_empty,
     })
 
-    ins_left({
-      "filename",
-      cond = conditions.buffer_not_empty,
-      -- color = { fg = colors.magenta, gui = "bold" },
-      color = { fg = colors.magenta },
-    })
+    -- ins_left({
+    --   "filename",
+    --   cond = conditions.buffer_not_empty,
+    --   -- color = { fg = colors.magenta, gui = "bold" },
+    --   color = { fg = colors.magenta },
+    -- })
 
     ins_left({ "location" })
 
@@ -199,11 +199,11 @@ return {
 
     -- Insert mid section. You can make any number of sections in neovim :)
     -- for lualine it's any number greater then 2
-    ins_left({
-      function()
-        return "%="
-      end,
-    })
+    -- ins_left({
+    --   function()
+    --     return "%="
+    --   end,
+    -- })
 
     ins_left({
       -- Lsp server name .
@@ -263,14 +263,14 @@ return {
       cond = conditions.hide_in_width,
     })
 
-    ins_right({
-      function()
-        -- return "▊"
-        return ""
-      end,
-      color = { fg = colors.blue },
-      padding = { left = 1 },
-    })
+    -- ins_right({
+    --   function()
+    --     -- return "▊"
+    --     return ""
+    --   end,
+    --   color = { fg = colors.blue },
+    --   padding = { left = 1 },
+    -- })
 
     -- Now don't forget to initialize lualine
     lualine.setup(config)

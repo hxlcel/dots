@@ -2,7 +2,6 @@
 
 format = """
 $username\
-$directory\
 
 $fill\
 
@@ -22,6 +21,7 @@ $python\
 $git_branch\
 $git_status\
 $time\n  \
+$directory\
 [❯](fg:iris) \
 """
 
@@ -38,8 +38,9 @@ foam = '#9ccfd8'
 iris = '#c4a7e7'
 
 [directory]
-format = "[](fg:overlay)[ $path ]($style)[](fg:overlay) "
-style = "bg:overlay fg:pine"
+# format = "[](fg:overlay)[ $path ]($style)[](fg:overlay) "
+# style = "bg:overlay fg:pine"
+style = "bg:base fg:pine"
 truncation_length = 3
 truncation_symbol = "…/"
 

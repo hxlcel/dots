@@ -25,7 +25,8 @@
       source = ../../../non-nix/ghostty;
     };
 
-    # ".config/tmux.conf".source = ../../../non-nix/tmux.conf;
+    # ".config/tmux/tmux.conf".source = ../../../non-nix/tmux.conf;
+    ".config/starship.toml".source = ./starship.toml;
   };
 
   # Avoiding Nix Store Immutability
@@ -54,28 +55,6 @@
       libreoffice-qt6-fresh
     ]);
 
-  # programs.neovim = {
-  #   enable = true;
-  #   package = pkgs-unstable.neovim-unwrapped;
-  #   extraPackages = with pkgs-unstable; [
-  #     (python312.withPackages (ps:
-  #       with ps; [
-  #         python-lsp-server # Pylsp
-  #         flake8 # Python Linter
-  #         mypy
-  #         black # Opinionated Python Formatter
-  #         pytest
-  #         pytest-mock
-  #         debugpy
-  #       ]))
-  #     lua-language-server
-  #     stylua # Lua Formatter
-  #
-  #     nixd # Nix Language Server
-  #     alejandra # Nix Formatter
-  #   ];
-  # };
-
   programs.direnv = {
     enable = true;
     package = pkgs-unstable.direnv;
@@ -91,6 +70,6 @@
   };
   programs.starship = {
     enable = true;
-    settings = pkgs.lib.importTOML ./starship.toml;
+    # settings = pkgs.lib.importTOML ./starship.toml;
   };
 }

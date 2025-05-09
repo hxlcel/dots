@@ -10,15 +10,17 @@
       neovim
       vim # Emergency editor
 
-      ###---- Termial Emulator ----###
+      ###---- Termial ----###
       ghostty
+      tmux # terminal multiplexer
 
-      # Utilities
+      ###---- Utilities ----###
       manix # Nix option documentation
       jellyfin-ffmpeg
       lz4
       git
       monitor
+      kdePackages.dolphin
 
       # CLI
       ripgrep
