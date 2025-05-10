@@ -46,7 +46,7 @@ shell-integration = zsh
 
 # theme = carbonfox
 theme = rose-pine
-background-opacity = 0.7
+# background-opacity = 0.7
 
 # background-opacity = 0.5
 # background = #000000

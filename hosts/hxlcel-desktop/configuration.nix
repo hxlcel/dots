@@ -13,6 +13,7 @@
     ./host-packages.nix
     ./services.nix
     ./stylix.nix
+    ../default/kanata.nix
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
