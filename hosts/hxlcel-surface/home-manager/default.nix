@@ -1,32 +1,32 @@
-{ pkgs, inputs, pkgs-unstable, ... }:
-
 {
+  pkgs,
+  inputs,
+  pkgs-unstable,
+  ...
+}: {
+  # TODO: gnome tiling window manager?
   home.username = "hazel";
   home.homeDirectory = "/home/hazel";
 
-  home.stateVersion = "24.05"; # just don't fuck with it 
+  home.stateVersion = "24.05"; # just don't fuck with it
 
   # Modules
   imports = [
     ../../default/home-manager
     ./git.nix
     ./gnome.nix
-   ];
+  ];
 
   home.packages =
     # (with pkgs; [
     #
     # ])
     # ++
-    ( with pkgs-unstable; [
-
+    (with pkgs-unstable; [
       xournalpp
-
     ]);
-
 
   programs.home-manager = {
     enable = true;
   };
-
 }
