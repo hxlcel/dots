@@ -9,5 +9,8 @@ return {
     completions = {
       blink = { enabled = true },
     },
+    bullet = {
+      right_pad = 1,
+    },
   },
 }

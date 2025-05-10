@@ -11,7 +11,7 @@
     ./hxlcel-surface.nix
     ../default/packages.nix
     ../default/users.nix
-    # ./kanata.nix
+    ./kanata.nix
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];

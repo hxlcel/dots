@@ -37,6 +37,15 @@
 
       # Misc
       cavalier
+      blackmagic # MCU debugging tool
+      usbutils
+
+      # Keyboards
+      kanata
+
+      qmk
+      qmk_hid
+      vial
 
       # Git
       gitg
@@ -58,10 +67,19 @@
           pynvim
         ]))
 
+      ### C
+      # C LSP
+      clang
+      clang-tools # Includes clangd, clang-tidy, clang-format etc.
+      cppcheck
+      gnumake
+
+      # Lua
       luajit
       lua-language-server
       stylua
 
+      # Nix
       nixd
       alejandra
 

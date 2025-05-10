@@ -49,6 +49,7 @@ Documents = "󰈙"
 Downloads = " "
 Music = " "
 Pictures = " "
+BeinnTharsuinn = " "
 
 [fill]
 style = "fg:overlay"

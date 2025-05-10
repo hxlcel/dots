@@ -8,4 +8,5 @@ return {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
+  { "vuciv/golf" },
 }

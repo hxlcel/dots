@@ -1,0 +1,22 @@
+;; to allow kanata to process unmapped keys
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  s d f
+)
+
+(defvar
+  tap-time 200
+  hold-time 200
+)
+
+(defalias
+;;;  a-mod (tap-hold $tap-time $hold-time a lmet)
+  s-mod (tap-hold $tap-time $hold-time s lalt)
+)
+
+(deflayer base
+  @s-mod
+)

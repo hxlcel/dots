@@ -174,17 +174,17 @@ return {
       cond = conditions.buffer_not_empty,
     })
 
-    -- ins_left({
-    --   "filename",
-    --   cond = conditions.buffer_not_empty,
-    --   -- color = { fg = colors.magenta, gui = "bold" },
-    --   color = { fg = colors.magenta },
-    -- })
+    ins_left({
+      "filename",
+      cond = conditions.buffer_not_empty,
+      -- color = { fg = colors.magenta, gui = "bold" },
+      color = { fg = colors.magenta },
+    })
 
-    ins_left({ "location" })
+    -- ins_left({ "location" })
 
     -- ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
-    ins_left({ "progress", color = { fg = colors.fg } })
+    -- ins_left({ "progress", color = { fg = colors.fg } })
 
     ins_left({
       "diagnostics",
