@@ -27,6 +27,7 @@
   };
 
   # TODO: not working for surface keyboard...
+  # TODO: mouse speed and buttons
   # NOTES: homerow mods add a little delay feels really uncomfortable, typos
 
   services.kanata = {
@@ -41,12 +42,12 @@
         config = ''
           ;; to allow kanata to process unmapped keys
           (defsrc
-            esc f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 f13
-            grv  1   2   3   4   5   6   =   7   8   9   0   -   bspc      ins home pgup
-            tab   q   w   e   r   t   [   y   u   i   o   p   '     \      del end  pgdn
-            caps   a   s   d   f   g   ]   h   j   k   l   ;      ret
-            lsft    x   c   v   b   z   /   n   m   ,   .        rsft           up
-            lctl   lmet   lalt       spc           ralt   menu   rctl      lft  down  rght
+            esc    f1  f2  f3  f4   f5  f6  f7  f8   f9  f10  f11  f12    f13
+            grv   1    2    3    4    5   6 =   7    8    9    0    -    bspc      ins home pgup
+            tab   q    w    e    r    t    [    y    u    i    o    p   '  \       del end  pgdn
+            caps  a    s    d    f    g    ]    h    j    k    l    ;     ret
+            lsft       x    c    v   b z   /    n    m    ,    .         rsft          up
+            lctl   lmet   lalt            spc           ralt    menu     rctl    lft  down  rght
           )
 
           (defvar
@@ -68,34 +69,48 @@
             spc (multi f24 (tap-hold $tt $ht spc @mo_scnd))
             cmk (layer-switch colemakDH)
             qwt (layer-switch base-qwerty)
+            msl (layer-while-held mouse)
+            ms< (movemouse-left 4 4)
+            ms> (movemouse-right 4 4)
+            msu (movemouse-up 4 4)
+            msd (movemouse-down 4 4)
           )
 
           (deflayer base-qwerty
           ;;  esc @a @s @d @f @j @k @l @;
-            esc f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 @cmk
-            grv  1   2   3   4   5   6   =   7   8   9   0   -   bspc      ins home pgup
-            tab   q   w   e   r   t   [   y   u   i   o   p   '     \      del end  pgdn
-            caps   a   s   d   f   g   ]   h   j   k   l   ;      ret
-            lsft    x   c   v   b   z   /   n   m   ,   .        rsft           up
-            lctl   lmet   lalt      @spc           ralt   menu   rctl      lft  down  rght
+            esc    f1  f2  f3  f4   f5  f6  f7  f8   f9  f10  f11  f12   @cmk
+            grv   1    2    3    4    5   6 =   7    8    9    0    -    bspc      ins home pgup
+            tab   q    w    e    r    t    [    y    u    i    o    p   '  \       del end  pgdn
+            caps  a    s    d    f    g    ]    h    j    k    l    ;     ret
+            lsft       x    c    v   b z   /    n    m    ,    .         rsft          up
+            lctl   lmet   lalt           @spc           ralt    menu     rctl    lft  down  rght
           )
 
           (deflayer colemakDH
-            esc f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 @qwt
-            grv  1   2   3   4   5   6   =   7   8   9   0   -   bspc      ins home pgup
-            tab   q   w   f   p   b   [   j   l   u   y   ;   '     \      del end  pgdn
-            caps   a   r   s   t   g   ]   m   n   e   i   o      ret
-            lsft    x   c   d   v   z   /   k   h   ,   .        rsft           up
-            lctl   lmet   lalt      @spc           ralt   menu   rctl      lft  down  rght
+            esc    f1  f2  f3  f4   f5  f6  f7  f8   f9  f10  f11  f12   @qwt
+            grv   1    2    3    4    5   6 =   7    8    9    0    -    bspc      ins home pgup
+            tab   q    w    f    p    b    [    j    l    u    y    ;   '  \       del end  pgdn
+            caps  a    r    s    t    g    ]    m    n    e    i    o     ret
+            lsft       x    c    d   v z   /    k    h    ,    .         rsft           up
+            lctl    lmet    lalt         @spc            ralt    menu    rctl     lft  down  rght
           )
 
           (deflayer secondary
-            esc f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 f13
-            grv  1   2   3   4   5   6   7   8   9   0   -   =   bspc      ins home pgup
-            tab   -   =   [   ]   /   y   u   i   o   p   [   ]     \      del end  pgdn
-            caps   ;   '   ,   .  bspc lft  down  up  rght ;  '   ret
-            lsft    z   x   c   v   b   n   m   ,   .   /        rsft           up
-            lctl   lmet   lalt       spc           ralt   menu   rctl      lft  down  rght
+            esc    f1  f2  f3  f4   f5  f6  f7  f8   f9  f10  f11  f12   f13
+            grv   1    2    3    4    5   6 =   7    8    9    0    -    bspc      ins home pgup
+            tab  @msl   w    e    r    t    [    y    u    o    o    p   '  \       del end  pgdn
+            caps  a    s    d    f    g    ]   lft  down  up  rght  ;     ret
+            lsft       x    c    v   b z   /    n    m    ,    .         rsft          up
+            lctl   lmet   lalt           @spc           ralt    menu     rctl    lft  down  rght
+          )
+
+          (deflayer mouse
+            esc    f1  f2  f3  f4   f5  f6  f7  f8   f9  f10  f11  f12   f13
+            grv   1    2    3    4    5   6 =   7    8    9    0    -    bspc      ins home pgup
+            tab   q    w    e    r    t    [    y    u    i    o    p   '  \        del end  pgdn
+            caps  a    s    d    f    g    ]  @ms<  @msd @msu @ms>  ;     ret
+            lsft       x    c    v   b z   /    n    m    ,    .         rsft          up
+            lctl   lmet   lalt           @spc           ralt    menu     rctl    lft  down  rght
           )
         '';
       };
