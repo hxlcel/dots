@@ -42,11 +42,11 @@
           ;; to allow kanata to process unmapped keys
           (defsrc
             esc f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 f13
-            grv  1   2   3   4   5   6   7   8   9   0   -   =   bspc      ins home pgup
-            tab   q   w   e   r   t   y   u   i   o   p   [   ]     \      del end  pgdn
-            caps   a   s   d   f   g   h   j   k   l   ;   '      ret
-            lsft    z   x   c   v   b   n   m   ,   .   /        rsft           up
-            lctl   lmet   lalt       spc            ralt         rctl      lft  down  rght
+            grv  1   2   3   4   5   6   =   7   8   9   0   -   bspc      ins home pgup
+            tab   q   w   e   r   t   [   y   u   i   o   p   '     \      del end  pgdn
+            caps   a   s   d   f   g   ]   h   j   k   l   ;      ret
+            lsft    x   c   v   b   z   /   n   m   ,   .        rsft           up
+            lctl   lmet   lalt       spc           ralt   menu   rctl      lft  down  rght
           )
 
           (defvar
@@ -73,20 +73,20 @@
           (deflayer base-qwerty
           ;;  esc @a @s @d @f @j @k @l @;
             esc f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 @cmk
-            grv  1   2   3   4   5   6   7   8   9   0   -   =   bspc      ins home pgup
-            tab   q   w   e   r   t   y   u   i   o   p   [   ]     \      del end  pgdn
-            lmet   a   s   d   f   g   h   j   k   l   ;   '      ret
-            lsft    z   x   c   v   b   n   m   ,   .   /        rsft           up
-            lctl   lmet   lalt       @spc           ralt         rctl      lft  down  rght
+            grv  1   2   3   4   5   6   =   7   8   9   0   -   bspc      ins home pgup
+            tab   q   w   e   r   t   [   y   u   i   o   p   '     \      del end  pgdn
+            caps   a   s   d   f   g   ]   h   j   k   l   ;      ret
+            lsft    x   c   v   b   z   /   n   m   ,   .        rsft           up
+            lctl   lmet   lalt      @spc           ralt   menu   rctl      lft  down  rght
           )
 
           (deflayer colemakDH
             esc f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 @qwt
-            grv  1   2   3   4   5   6   7   8   9   0   -   =   bspc      ins home pgup
-            tab   q   w   f   p   b   j   l   u   y   ;   [   ]     \      del end  pgdn
-            caps   a   r   s   t   g   m    n   e   i   o   '     ret
-            lsft    x   c   d   v   z   k   h   ,   .   /        rsft           up
-            lctl   lmet   lalt       @spc            ralt         rctl      lft  down  rght
+            grv  1   2   3   4   5   6   =   7   8   9   0   -   bspc      ins home pgup
+            tab   q   w   f   p   b   [   j   l   u   y   ;   '     \      del end  pgdn
+            caps   a   r   s   t   g   ]   m   n   e   i   o      ret
+            lsft    x   c   d   v   z   /   k   h   ,   .        rsft           up
+            lctl   lmet   lalt      @spc           ralt   menu   rctl      lft  down  rght
           )
 
           (deflayer secondary
@@ -95,7 +95,7 @@
             tab   -   =   [   ]   /   y   u   i   o   p   [   ]     \      del end  pgdn
             caps   ;   '   ,   .  bspc lft  down  up  rght ;  '   ret
             lsft    z   x   c   v   b   n   m   ,   .   /        rsft           up
-            lctl   lmet   lalt       spc            ralt         rctl      lft  down  rght
+            lctl   lmet   lalt       spc           ralt   menu   rctl      lft  down  rght
           )
         '';
       };
