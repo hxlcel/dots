@@ -27,7 +27,8 @@
   };
 
   # TODO: not working for surface keyboard...
-  # NOTES: Adds a little delay feels really uncomfortable, typos
+  # NOTES: homerow mods add a little delay feels really uncomfortable, typos
+
   services.kanata = {
     enable = true;
     keyboards = {
@@ -35,34 +36,66 @@
         # Replace the paths below with the appropriate device paths for your setup.
         # Use `ls /dev/input/by-path/` to find your keyboard devices.
         devices = [];
+        port = 12345;
         extraDefCfg = "process-unmapped-keys yes";
         config = ''
           ;; to allow kanata to process unmapped keys
           (defsrc
-          ;;  caps a s d f j k l ;
-          caps
+            esc f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 f13
+            grv  1   2   3   4   5   6   7   8   9   0   -   =   bspc      ins home pgup
+            tab   q   w   e   r   t   y   u   i   o   p   [   ]     \      del end  pgdn
+            caps   a   s   d   f   g   h   j   k   l   ;   '      ret
+            lsft    z   x   c   v   b   n   m   ,   .   /        rsft           up
+            lctl   lmet   lalt       spc            ralt         rctl      lft  down  rght
           )
 
           (defvar
-            tap-time 150
-            hold-time 200
+            tt 150
+            ht 200
           )
 
           (defalias
           ;; most common homerow mod order: super, alt, shift, control
-          ;;  a (multi f24 (tap-hold $tap-time $hold-time a lmet))
-          ;;  s (multi f24 (tap-hold $tap-time $hold-time s lalt))
-          ;;  d (multi f24 (tap-hold $tap-time $hold-time d lsft))
-          ;;  f (multi f24 (tap-hold $tap-time $hold-time f lctl))
-          ;;  j (multi f24 (tap-hold $tap-time $hold-time j rctl))
-          ;;  k (multi f24 (tap-hold $tap-time $hold-time k rsft))
-          ;;  l (multi f24 (tap-hold $tap-time $hold-time l ralt))
-          ;;  ; (multi f24 (tap-hold $tap-time $hold-time ; rmet))
+          ;;  a (multi f24 (tap-hold $tt $ht a lmet))
+          ;;  s (multi f24 (tap-hold $tt $ht s lalt))
+          ;;  d (multi f24 (tap-hold $tt $ht d lsft))
+          ;;  f (multi f24 (tap-hold $tt $ht f lctl))
+          ;;  j (multi f24 (tap-hold $tt $ht j rctl))
+          ;;  k (multi f24 (tap-hold $tt $ht k rsft))
+          ;;  l (multi f24 (tap-hold $tt $ht l ralt))
+          ;;  ; (multi f24 (tap-hold $tt $ht ; rmet))
+            mo_scnd (layer-while-held secondary)
+            spc (multi f24 (tap-hold $tt $ht spc @mo_scnd))
+            cmk (layer-switch colemakDH)
+            qwt (layer-switch base-qwerty)
           )
 
-          (deflayer base
+          (deflayer base-qwerty
           ;;  esc @a @s @d @f @j @k @l @;
-          esc
+            esc f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 @cmk
+            grv  1   2   3   4   5   6   7   8   9   0   -   =   bspc      ins home pgup
+            tab   q   w   e   r   t   y   u   i   o   p   [   ]     \      del end  pgdn
+            lmet   a   s   d   f   g   h   j   k   l   ;   '      ret
+            lsft    z   x   c   v   b   n   m   ,   .   /        rsft           up
+            lctl   lmet   lalt       @spc           ralt         rctl      lft  down  rght
+          )
+
+          (deflayer colemakDH
+            esc f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 @qwt
+            grv  1   2   3   4   5   6   7   8   9   0   -   =   bspc      ins home pgup
+            tab   q   w   f   p   b   j   l   u   y   ;   [   ]     \      del end  pgdn
+            caps   a   r   s   t   g   m    n   e   i   o   '     ret
+            lsft    x   c   d   v   z   k   h   ,   .   /        rsft           up
+            lctl   lmet   lalt       @spc            ralt         rctl      lft  down  rght
+          )
+
+          (deflayer secondary
+            esc f1  f2  f3  f4  f5  f6  f7  f8  f9  f10  f11  f12 f13
+            grv  1   2   3   4   5   6   7   8   9   0   -   =   bspc      ins home pgup
+            tab   -   =   [   ]   /   y   u   i   o   p   [   ]     \      del end  pgdn
+            caps   ;   '   ,   .  bspc lft  down  up  rght ;  '   ret
+            lsft    z   x   c   v   b   n   m   ,   .   /        rsft           up
+            lctl   lmet   lalt       spc            ralt         rctl      lft  down  rght
           )
         '';
       };

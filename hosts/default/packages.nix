@@ -22,6 +22,11 @@
       monitor
       kdePackages.dolphin
 
+      # wget
+      # mokutil
+      # samba
+      # cabextract
+
       # CLI
       ripgrep
       fzf
@@ -30,7 +35,7 @@
       tree
       unzip
       zoxide
-      eza
+      # eza # hm opts
 
       # Fonts
       atkinson-hyperlegible-next
@@ -39,13 +44,15 @@
       cavalier
       blackmagic # MCU debugging tool
       usbutils
+      libudev-zero # libudev is a via-cli depandancy which doesn't seem to be available on it's own
+
+      # Windows Compatibility
+      wineWowPackages.stable
+      winetricks
+      # heroic (?)
 
       # Keyboards
       kanata
-
-      qmk
-      qmk_hid
-      vial
 
       # Git
       gitg

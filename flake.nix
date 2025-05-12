@@ -25,6 +25,8 @@
     sherlock.url = "github:Skxxtz/sherlock";
 
     stylix.url = "github:danth/stylix/release-24.11";
+
+    tmux-sessionx.url = "github:omerxx/tmux-sessionx";
   };
 
   outputs = {

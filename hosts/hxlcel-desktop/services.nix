@@ -1,6 +1,5 @@
-{ pkgs-unstable, ...}:
-{
-  environment.systemPackages = ( with pkgs-unstable; [
+{pkgs-unstable, ...}: {
+  environment.systemPackages = (with pkgs-unstable; [
     where-is-my-sddm-theme
   ]);
 
@@ -30,7 +29,7 @@
     #   enable = true;
     #   settings = {
     #     animation = "matrix";
-    #     # bg = 
+    #     # bg =
     #   };
     # };
 
@@ -38,6 +37,5 @@
     ### need to figure out what kind of session and which file to manually give them
 
     # xserver.desktopManager.gnome.enable = true;
-
   };
 }

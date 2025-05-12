@@ -1,4 +1,8 @@
-{pkgs-unstable, ...}: {
+{
+  pkgs-unstable,
+  inputs,
+  ...
+}: {
   # TODO: can i add rounded ends to the mode indicator 
   # TODO: zoomed window icon?
 
@@ -59,13 +63,13 @@
       }
       # strange behaviour, possibly my fault
       # TODO: learn how to use sessions
-      # {
-      #   plugin = tmux-sessionx;
-      #   extraConfig = ''
-      #     set -g @sessionx-bind "o"
-      #     set -g @sessionx-zoxide-mode "on"
-      #   '';
-      # }
+      {
+        plugin = inputs.tmux-sessionx.packages.x86_64-linux.default;
+        extraConfig = ''
+          set -g @sessionx-bind "o"
+          set -g @sessionx-zoxide-mode "on"
+        '';
+      }
     ];
 
     extraConfig = ''

@@ -1,3 +1,5 @@
+-- TODO: gitsigns
+
 -- highlight on search but remove on esc
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
