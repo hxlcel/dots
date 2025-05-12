@@ -10,6 +10,7 @@
     ./yazi.nix
     ./lazygit.nix
     ./tmux.nix
+    ./eza.nix
   ];
 
   ### config directory ###
