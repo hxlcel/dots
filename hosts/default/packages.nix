@@ -18,7 +18,7 @@
       manix # Nix option documentation
       jellyfin-ffmpeg
       lz4
-      git
+      # git
       monitor
       kdePackages.dolphin
 
@@ -55,6 +55,7 @@
       kanata
 
       # Git
+      gitFull
       gitg
 
       ###---- Language Servers, Linters, Formatters ----###

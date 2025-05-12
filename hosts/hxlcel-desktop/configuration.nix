@@ -29,6 +29,9 @@
   networking.hostName = "hxlcel-desktop"; # Define your hostname.
   networking.networkmanager.enable = true;
 
+  services.openssh.enable = true;
+  programs.ssh.startAgent = true;
+
   # users.users.hazel = {
   #   isNormalUser = true;
   #   home = "/home/hazel/";
@@ -62,6 +65,7 @@
     variant = "";
   };
 
+  ### Hyprland
   programs = {
     hyprland = {
       enable = true;
