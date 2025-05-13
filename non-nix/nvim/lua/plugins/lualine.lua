@@ -174,12 +174,12 @@ return {
       cond = conditions.buffer_not_empty,
     })
 
-    ins_left({
-      "filename",
-      cond = conditions.buffer_not_empty,
-      -- color = { fg = colors.magenta, gui = "bold" },
-      color = { fg = colors.magenta },
-    })
+    -- ins_left({
+    --   "filename",
+    --   cond = conditions.buffer_not_empty,
+    --   -- color = { fg = colors.magenta, gui = "bold" },
+    --   color = { fg = colors.magenta },
+    -- })
 
     -- ins_left({ "location" })
 
