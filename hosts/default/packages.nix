@@ -91,6 +91,11 @@
       nixd
       alejandra
 
+      # HTML & CSS
+      emmet-ls
+      vscode-langservers-extracted
+      live-server # local network server with live reload
+
       gcc14
     ])
     ++ (with pkgs; [

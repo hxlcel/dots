@@ -39,6 +39,8 @@ return {
     vim.lsp.enable("lua_ls") -- Note: Lazydev.nvim required to avoid `undefined global vim` errors (also improves nvim qol by a lot)
     vim.lsp.enable("pylsp")
     vim.lsp.enable("nixd")
+    vim.lsp.enable("vscode-html-language-server")
+    -- vim.lsp.enable("emmet-ls")
 
     vim.lsp.config("*", {
       capabilities = capabilities,
@@ -82,6 +84,20 @@ return {
     vim.lsp.config("nixd", {
       cmd = { "nixd" },
       filetypes = { "nix" },
+    })
+
+    vim.lsp.config("vscode-html-language-server", {
+      cmd = { "vscode-html-language-server", "--stdio" },
+      filetypes = { "html" },
+      settings = {
+        ["vscode-html-language-server"] = {
+          configurationSection = { "html", "css", "javascript" },
+          embeddedLanguages = {
+            css = true,
+            javascript = true,
+          },
+        },
+      },
     })
   end,
 }

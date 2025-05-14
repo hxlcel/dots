@@ -10,6 +10,8 @@ return {
         python = { "black" },
         lua = { "stylua" },
         nix = { "alejandra" },
+        html = { "prettier" },
+        css = { "prettier" },
       },
 
       format_on_save = {
