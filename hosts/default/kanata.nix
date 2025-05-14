@@ -69,11 +69,15 @@
             spc (multi f24 (tap-hold $tt $ht spc @mo_scnd))
             cmk (layer-switch colemakDH)
             qwt (layer-switch base-qwerty)
+
             msl (layer-while-held mouse)
             ms< (movemouse-left 4 4)
             ms> (movemouse-right 4 4)
             msu (movemouse-up 4 4)
             msd (movemouse-down 4 4)
+            fst (movemouse-speed 200)
+            slw (movemouse-speed 50)
+            vsl (movemouse-speed 25)
           )
 
           (deflayer base-qwerty
@@ -83,7 +87,7 @@
             tab   q    w    e    r    t    [    y    u    i    o    p   '  \       del end  pgdn
             caps  a    s    d    f    g    ]    h    j    k    l    ;     ret
             lsft       x    c    v   b z   /    n    m    ,    .         rsft          up
-            lctl   lmet   lalt           @spc           ralt    menu     rctl    lft  down  rght
+            lctl   lmet   lalt           @spc           @msl    menu     rctl    lft  down  rght
           )
 
           (deflayer colemakDH
@@ -98,7 +102,7 @@
           (deflayer secondary
             esc    f1  f2  f3  f4   f5  f6  f7  f8   f9  f10  f11  f12   f13
             grv   1    2    3    4    5   6 =   7    8    9    0    -    bspc      ins home pgup
-            tab  @msl   w    e    r    t    [    y    u    o    o    p   '  \       del end  pgdn
+            tab   q     w    e    r    t    [    y    u    o    o    p   '  \       del end  pgdn
             caps  a    s    d    f    g    ]   lft  down  up  rght  ;     ret
             lsft       x    c    v   b z   /    n    m    ,    .         rsft          up
             lctl   lmet   lalt           @spc           ralt    menu     rctl    lft  down  rght
@@ -107,8 +111,8 @@
           (deflayer mouse
             esc    f1  f2  f3  f4   f5  f6  f7  f8   f9  f10  f11  f12   f13
             grv   1    2    3    4    5   6 =   7    8    9    0    -    bspc      ins home pgup
-            tab   q    w    e    r    t    [    y    u    i    o    p   '  \        del end  pgdn
-            caps  a    s    d    f    g    ]  @ms<  @msd @msu @ms>  ;     ret
+            tab   q   @vsl @slw @fst  t    [    y    u    i    o    p   '  \        del end  pgdn
+            caps  a   mrgt mmid mlft  g    ]  @ms<  @msd @msu @ms>  ;     ret
             lsft       x    c    v   b z   /    n    m    ,    .         rsft          up
             lctl   lmet   lalt           @spc           ralt    menu     rctl    lft  down  rght
           )
