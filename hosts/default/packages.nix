@@ -22,10 +22,8 @@
       monitor
       kdePackages.dolphin
 
-      # wget
-      # mokutil
-      # samba
-      # cabextract
+      # 3D Printing
+      orca-slicer
 
       # CLI
       ripgrep
