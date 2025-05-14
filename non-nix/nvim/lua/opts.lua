@@ -1,4 +1,6 @@
--- TODO: gitsigns
+vim.o.termguicolors = true
+
+vim.o.wrap = false
 
 -- highlight on search but remove on esc
 vim.opt.hlsearch = true
@@ -57,3 +59,7 @@ vim.opt.splitkeep = "screen"
 
 -- for obsidian.nvim
 vim.opt.conceallevel = 1
+
+-- split windows
+vim.o.splitright = true
+vim.o.splitbelow = true
