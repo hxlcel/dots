@@ -70,6 +70,8 @@
             cmk (layer-switch colemakDH)
             qwt (layer-switch base-qwerty)
 
+            eqsp (macro = spc) ;; types "= " or "+ " more comfy equals/plus for wide-mod layouts w/ spc fn key
+
             msl (layer-while-held mouse)
             ms< (movemouse-left 4 4)
             ms> (movemouse-right 4 4)
@@ -102,7 +104,7 @@
           (deflayer secondary
             esc    f1  f2  f3  f4   f5  f6  f7  f8   f9  f10  f11  f12   f13
             grv   1    2    3    4    5   6 =   7    8    9    0    -    bspc      ins home pgup
-            tab   q     w    e    r    t    [    y    u    o    o    p   '  \       del end  pgdn
+            tab   q     w  @eqsp r    t    [    y    u    o    o    p   '  \       del end  pgdn
             caps  a    s    d    f    g    ]   lft  down  up  rght  ;     ret
             lsft       x    c    v   b z   /    n    m    ,    .         rsft          up
             lctl   lmet   lalt           @spc           ralt    menu     rctl    lft  down  rght
