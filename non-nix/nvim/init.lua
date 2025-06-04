@@ -14,22 +14,7 @@ require("config.lazy")
 
 -- ###---- Python Interpreter Path ----###
 vim.g.python3_host_prog = "/run/current-system/sw/bin/python3"
--- Use systemwide python environment
-
-function Get_env_python()
-  --[[
-  Returns the path of the active python environment.
-
-  This function checks the current working directory (where neovim was
-  opened from) and returns the path of the active python instance.
-
-  Applicable environment is any systemwide instance when there is no
-  active venv, dev environment, nix shell, etc.
-  ]]
-  return vim.fn.trim(vim.fn.system("which python3"))
-end
-
-print("Project Environment Python path:", Get_env_python())
+-- Use systemwide python environment; helpers.get_python_path() for the environment interpreter.
 
 -- ###---- Examples ----###
 -- Example of configuring nvim term & issuing commands remotely w/ only lua

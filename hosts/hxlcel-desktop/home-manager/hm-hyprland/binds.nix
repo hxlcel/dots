@@ -1,14 +1,13 @@
-{ inputs, ...}:
-let
+{inputs, ...}: let
   mod = "SUPER";
-in
-{
+in {
   wayland.windowManager.hyprland.keyBinds = {
     # Quick launch programs
     bind."${mod}, T" = "exec, ghostty";
     bind."${mod}, Z" = "exec, zen";
     # bindr."${mod}, ${mod}_L" = "exec, fuzzel";
-    bindr."${mod}, ${mod}_L" = "exec, rofi -show drun -show-icons";
+    # bindr."${mod}, ${mod}_L" = "exec, rofi -show drun -show-icons";
+    bind."${mod}, SPACE" = "exec, rofi -show drun -show-icons";
     # bindr."${mod}, ${mod}_L" = "exec, sherlock";
 
     # Lock desktop environment
@@ -59,7 +58,6 @@ in
 
     # Misc
     bind."${mod}_ALT, N" = "exec, dunstctl close-all";
-
 
     ###---- Hyprshot ----###
     # Regional screenshot passed only to the clipboard

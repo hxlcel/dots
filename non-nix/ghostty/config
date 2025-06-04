@@ -46,6 +46,7 @@ shell-integration = zsh
 
 # theme = carbonfox
 theme = rose-pine
+# theme = CyberpunkScarletProtocol
 # background-opacity = 0.7
 
 # background-opacity = 0.5
@@ -71,8 +72,3 @@ window-decoration = none
 window-padding-y = 0
 window-padding-balance = true
 
-
-
-
-# TODO: ?
-# theme = cyberpunkscarlettprotocol

@@ -40,14 +40,38 @@
   } @ inputs: let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-    pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    # pkgs = nixpkgs.legacyPackages.${system};
+    # pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+
+    allowed-unfree-packages = [
+      "obsidian"
+      "vscode"
+      "megacmd"
+      "p7zip"
+      "p7zip-rar"
+    ];
+
+    pkgs = import nixpkgs {
+      inherit system;
+      config = {
+        allowUnfree = true;
+        allowUnfreePredicate = _: true;
+      };
+    };
+    pkgs-unstable = import nixpkgs-unstable {
+      inherit system;
+      config = {
+        allowUnfree = true;
+        allowUnfreePredicate = _:true;
+      };
+    };
   in {
     nixosConfigurations = {
       hxlcel-desktop = lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit inputs;
+          inherit pkgs;
           inherit pkgs-unstable;
         };
         modules = [

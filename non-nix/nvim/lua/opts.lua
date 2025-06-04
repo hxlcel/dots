@@ -30,7 +30,7 @@ vim.opt.relativenumber = true
 vim.opt.showmode = false
 
 -- minimum number of lines above and below the cursor
-vim.opt.scrolloff = 15
+vim.opt.scrolloff = 20
 
 -- Always show the tabline
 -- vim.o.showtabline = 2
@@ -47,6 +47,8 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move focus to the up window" })
 vim.keymap.set("n", "<esc><esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 vim.keymap.set("n", "<C-w>t", ":$tabnew<CR>", { noremap = true }) -- New tab
+
+vim.keymap.set("n", "<leader>'", "<C-w>q", { desc = "Close the current pane" })
 
 -- Centred scroll binds
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })

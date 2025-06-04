@@ -1,5 +1,11 @@
-{ self, config, pkgs-unstable, lib, pkgs, ...}:
 {
+  self,
+  config,
+  pkgs-unstable,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./animations.nix
     ./binds.nix
@@ -60,7 +66,6 @@
     workspaceRules = {
       "1".monitor = "DP-2";
     };
-
   };
   home.sessionVariables = {
     EDITOR = "nvim";

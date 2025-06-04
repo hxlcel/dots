@@ -1,6 +1,11 @@
-{ config, pkgs-unstable, lib, ... }: {
-
+{
+  config,
+  pkgs-unstable,
+  lib,
+  ...
+}: {
   programs.rofi = {
+    # Plugins in /host-packages/
     enable = true;
     package = pkgs-unstable.rofi-wayland;
     terminal = "kitty";
@@ -14,11 +19,9 @@
       # display-drun = "  Apps";
       # display-run = "  Run";
       # display-filebrowser = "  File";
-
     };
   };
 }
-
 #     theme = let
 #       inherit (config.lib.formats.rasi) mkLiteral;
 #     in {
@@ -209,8 +212,9 @@
 #   };
 #
 #   # plugins = with pkgs-unstable; [
-#   #   rofi-calc 
+#   #   rofi-calc
 #   # ];
 #   #
 #   # theme = ./rose-pine.rasi;
 # }
+

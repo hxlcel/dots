@@ -23,7 +23,7 @@
       kdePackages.dolphin
 
       # 3D Printing
-      orca-slicer
+      orca-slicer # Mainsail UI must be accessed through the browser, causes seg faults in orca.
 
       # CLI
       ripgrep
@@ -31,8 +31,10 @@
       fd
       bat
       tree
+      zip
       unzip
       zoxide
+      htop
       # eza # hm opts
 
       # Fonts
@@ -45,12 +47,29 @@
       libudev-zero # libudev is a via-cli depandancy which doesn't seem to be available on it's own
 
       # Windows Compatibility
-      wineWowPackages.stable
+      openssl
+      # wineWowPackages.stable
+      wine
       winetricks
+      bottles
       # heroic (?)
+
+      # Fusion360 Install
+      # wget
+      # samba4Full
+      # cabextract
+      # mokutil
+      # lsb-release
+      # virtualglLib
+      # spacenavd
+      # bc
 
       # Keyboards
       kanata
+      qmk
+      qmk_hid
+      qmk-udev-rules
+      vial
 
       # Git
       gitFull
@@ -63,10 +82,12 @@
       ### Python
       (python313.withPackages (ps:
         with ps; [
+          # TODO: Spell checking solution; Python style favours US english
           python-lsp-server
           flake8
           mypy
           black
+          ruff # Experimental, Not in current setup, More complicated than just using it as a pylsp plugin
           # pytest # <-----
           # pytest-mock # <- Install according to project environment
           debugpy

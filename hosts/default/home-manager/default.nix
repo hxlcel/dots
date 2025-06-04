@@ -11,6 +11,7 @@
     ./lazygit.nix
     ./tmux.nix
     ./eza.nix
+    ./vscode.nix
   ];
 
   ### config directory ###
@@ -28,10 +29,13 @@
 
     # ".config/tmux/tmux.conf".source = ../../../non-nix/tmux.conf;
     ".config/starship.toml".source = ./starship.toml;
+
+    # ".config/code/User/settings.json".source = ../../../non-nix/vscode/settings.json;
   };
 
   # Avoiding Nix Store Immutability
   xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "/home/hazel/.dotfiles/non-nix/nvim";
+  xdg.configFile."Code/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink "/home/hazel/.dotfiles/non-nix/vscode/settings.json";
 
   # Allowed unfree packages since I can't figure out the systemwide setting.
   nixpkgs.config.allowUnfreePredicate = pkg:
@@ -39,6 +43,8 @@
       "obsidian"
       "vscode"
       "megacmd"
+      "p7zip"
+      "p7zip-rar"
     ];
 
   home.packages =
@@ -46,6 +52,9 @@
       # Unfree
       obsidian
       megacmd
+
+      # p7zip
+      p7zip-rar
 
       hyfetch
       fastfetch
@@ -63,14 +72,15 @@
     nix-direnv.enable = true;
   };
 
-  programs.vscode = {
-    enable = true;
-  };
-  programs.firefox = {
-    enable = true;
-  };
   programs.starship = {
     enable = true;
     # settings = pkgs.lib.importTOML ./starship.toml;
   };
+
+  # programs.vscode = {
+  #   enable = true;
+  # };
+  # programs.firefox = {
+  #   enable = true;
+  # };
 }

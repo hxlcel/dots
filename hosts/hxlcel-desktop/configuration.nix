@@ -74,6 +74,8 @@
   };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  services.xserver.desktopManager.gnome.enable = true;
+
   ###---- HARDWARE ----###
   services.printing.enable = true;
 
@@ -91,6 +93,13 @@
     powerOnBoot = true;
     settings = {General = {Experimental = true;};};
   };
+
+  hardware.keyboard.qmk.enable = true;
+
+  services.udev.packages = [
+    pkgs-unstable.qmk-udev-rules
+    pkgs-unstable.vial
+  ];
 
   environment.variables.EDITOR = "nvim";
 

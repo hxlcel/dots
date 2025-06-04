@@ -1,0 +1,41 @@
+{
+// --- Testing Configuration ---
+"python.testing.pytestEnabled": true,
+"python.testing.unittestEnabled": false,
+"python.testing.nosetestsEnabled": false,
+"python.testing.pytestArgs": [
+        "."
+    ],
+"direnv.restart.automatic": true,
+"python.envFile": "${workspaceFolder}/.envrc",
+"python.venvFolders": [
+    "Documents/UQ/CSSE1001 - Introduction to Software Engineering/"
+],
+"direnv.path.executable": "/home/hazel/.nix-profile/bin/direnv",
+
+// --- Linting and Type Checking ---
+
+"python.linting.enabled": true,
+"python.linting.flake8Enabled": true,
+"python.linting.mypyEnabled": true,
+"python.analysis.typeCheckingMode": "standard",
+
+// --- Formatting ---
+"python.formatting.provider": "black",
+
+// --- Environment Activation ---
+"python.termial.activateEnvironment": true,
+
+// --- Theme ---
+"editor.fontSize": 12,
+"editor.minimap.enabled": false,
+"workbench.colorTheme": "Activate SCARLET protocol (beta)",
+// "workbench.iconTheme": "rose-pine-icons",
+
+"extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+},
+"[python]": {
+    "diffEditor.ignoreTrimWhitespace": true
+},
+}

@@ -12,7 +12,10 @@ return {
     {
       "mfussenegger/nvim-dap-python",
       config = function()
-        require("dap-python").setup("python3")
+        local python_path = require("utils.helpers").get_env_python()
+        require("dap-python").setup(python_path, {
+          console = "integratedTerminal",
+        })
       end,
     },
   },

@@ -69,8 +69,10 @@ return {
         ["pylsp"] = {
           plugins = {
             mypy = { enable = true },
-            flake8 = { enabled = true },
+            flake8 = { enabled = true }, -- Experimenting with ruff
             black = { enabled = true },
+
+            ruff = { enabled = false }, --  TODO: need to work out better, may be good.
 
             -- Disable superseded defaults
             pycodestyle = { enabled = false },
