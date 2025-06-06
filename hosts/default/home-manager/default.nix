@@ -16,21 +16,14 @@
 
   ### config directory ###
   home.file = {
-    # ".config/nvim" = {
-    #   recursive = true;
-    #   # source = config.lib.file.mkOutOfStoreSymlink "/home/hazel/.dotfles/non-nix/nvim";
-    #   source = config.lib.file.mkOutOfStoreSymlink ../../../non-nix/nvim;
-    # };
-
     ".config/ghostty" = {
       recursive = true;
       source = ../../../non-nix/ghostty;
     };
 
-    # ".config/tmux/tmux.conf".source = ../../../non-nix/tmux.conf;
-    ".config/starship.toml".source = ./starship.toml;
-
-    # ".config/code/User/settings.json".source = ../../../non-nix/vscode/settings.json;
+    ".config/starship.toml" = {
+      source = ./starship.toml;
+    };
   };
 
   # Avoiding Nix Store Immutability
