@@ -27,6 +27,8 @@
     stylix.url = "github:danth/stylix/release-24.11";
 
     tmux-sessionx.url = "github:omerxx/tmux-sessionx";
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
   outputs = {
@@ -36,6 +38,7 @@
     auto-cpufreq,
     home-manager,
     nixos-hardware,
+    nix-flatpak,
     ...
   } @ inputs: let
     lib = nixpkgs.lib;
@@ -75,6 +78,7 @@
           inherit pkgs-unstable;
         };
         modules = [
+          nix-flatpak.nixosModules.nix-flatpak
           ./hosts/hxlcel-desktop/configuration.nix
           inputs.stylix.nixosModules.stylix
         ];
@@ -88,6 +92,7 @@
         };
         modules = [
           nixos-hardware.nixosModules.microsoft-surface-pro-9
+          nix-flatpak.nixosModules.nix-flatpak
           ./hosts/hxlcel-surface/configuration.nix
           auto-cpufreq.nixosModules.default
         ];
