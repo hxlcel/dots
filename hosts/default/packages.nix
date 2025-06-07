@@ -121,6 +121,6 @@
       gtk-engine-murrine
       gnome-themes-extra
       sassc
-      inputs.zen-browser.packages."${system}".default
+      # inputs.zen-browser.packages."${system}".default # community flake zen. superseded by installing flatpak ver.
     ]);
 }

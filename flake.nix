@@ -13,9 +13,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-    };
+    # Community flake zen install. Disabled to use flatpak, this ver had some issues.
+    # zen-browser = {
+    #   url = "github:0xc000022070/zen-browser-flake";
+    # };
 
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";

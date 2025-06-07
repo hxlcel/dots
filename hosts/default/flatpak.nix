@@ -1,13 +1,26 @@
-{
-  pkgs,
-  pkgs-unstable,
-  ...
-}: {
-  services.flatpak = {
-    enable = true;
-  };
+{pkgs-unstable, ...}: {
+  environment.systemPackages = with pkgs-unstable; [
+    appimage-run
+  ];
 
-  ### Theoretically unnecessary due to nix-flatpak
+  services.flatpak.enable = true;
+
+  # services.flatpak = {
+  #   enable = true;
+  #
+  #   ### for nix-flatpak, can't figure it out.
+  #   packages = [
+  #     # {
+  #     #   appId = "app.zen-browser.zen";
+  #     #   origin = "flathub";
+  #     # }
+  #     {
+  #       appId = "com.spotify.Client";
+  #       origin = "flathub";
+  #     }
+  #   ];
+  # };
+  #
   # systemd.services.flatpak-repo = {
   #   wantedby = ["multi-user.target "];
   #   path = [pkgs.flatpak];
