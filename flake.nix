@@ -44,6 +44,7 @@
   } @ inputs: let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
+    orcaAppImage = import ./hosts/default/orca.nix {inherit pkgs;};
     # pkgs = nixpkgs.legacyPackages.${system};
     # pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
 
@@ -77,6 +78,7 @@
           inherit inputs;
           inherit pkgs;
           inherit pkgs-unstable;
+          inherit orcaAppImage;
         };
         modules = [
           nix-flatpak.nixosModules.nix-flatpak
@@ -90,6 +92,7 @@
         specialArgs = {
           inherit inputs;
           inherit pkgs-unstable;
+          inherit orcaAppImage;
         };
         modules = [
           nixos-hardware.nixosModules.microsoft-surface-pro-9

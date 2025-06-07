@@ -14,7 +14,7 @@
     ./services.nix
     ./stylix.nix
     ../default/kanata.nix
-    ../default/flatpak.nix
+    ../default/non-nixpkgs.nix
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];

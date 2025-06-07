@@ -24,6 +24,11 @@
     ".config/starship.toml" = {
       source = ./starship.toml;
     };
+
+    # "bin/orca.AppImage" = {
+    #   source = ../../../non-nix/appimages/OrcaSlicer_Linux_AppImage_V2.3.0.AppImage;
+    #   executable = true;
+    # };
   };
 
   # Avoiding Nix Store Immutability

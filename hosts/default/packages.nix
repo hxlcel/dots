@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   pkgs-unstable,
+  orcaAppImage,
   ...
 }: {
   environment.systemPackages =
@@ -23,7 +24,7 @@
       kdePackages.dolphin
 
       # 3D Printing
-      orca-slicer # Mainsail UI must be accessed through the browser, causes seg faults in orca.
+      orca-slicer # see stable pkgs for AppImage. Mainsail UI must be accessed through the browser, causes seg faults in orca.
 
       # CLI
       ripgrep
@@ -121,6 +122,7 @@
       gtk-engine-murrine
       gnome-themes-extra
       sassc
+      orcaAppImage
       # inputs.zen-browser.packages."${system}".default # community flake zen. superseded by installing flatpak ver.
     ]);
 }

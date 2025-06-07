@@ -12,6 +12,7 @@
     ../default/packages.nix
     ../default/users.nix
     ../default/kanata.nix
+    ../default/non-nixpkgs.nix
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
