@@ -33,7 +33,6 @@
       unzip
       zoxide
       htop
-      # eza # hm opts
 
       # Fonts
       atkinson-hyperlegible-next
@@ -51,16 +50,6 @@
       winetricks
       bottles
       # heroic (?)
-
-      # Fusion360 Install
-      # wget
-      # samba4Full
-      # cabextract
-      # mokutil
-      # lsb-release
-      # virtualglLib
-      # spacenavd
-      # bc
 
       # Keyboards
       kanata
